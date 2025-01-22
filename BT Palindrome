@@ -1,50 +1,133 @@
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<stdlib.h>
+#include<stdbool.h>
 
-//Bai 1:Hàm kiểm tra số fibonacy
-//int palindome(int n){
-//	int a=0,b=n;//a:reversed,b:original
+//1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101
+//111, 121, 131, 141, 151, 161, 171, 181, 191, 202, 212, 222, 232, 242, 252, 262
+//*********************************************************************************************************************************
+//Bai 1:Hàm kiểm tra số palindrome
+//int palindrome(int n){
+//	int a=0,b=n;
 //	while(n != 0){
-//		a = a * 10 + (n%10);
+//		a = a*10 + n%10;
 //		n /= 10;
 //	}return(a==b);
 //}
 //
 //main(){
 //	int n,i;printf("Nhap N:");scanf("%d",&n);
-//	if(palindome(n)){
-//		printf("La so Palindome");
+//	if(palindrome(n)){
+//		printf("N la so Palindrome");
 //	}else{
-//		printf("Khong la so Palindome");
+//		printf("N Khong la so Palindrome");
 //	}
 //}
-
-
+//*********************************************************************************************************************************
 //B2:Nếu không phải Palindrome,in ra các ước của nó
-int pa(int n){
-	int a=0,b=n;
-	while(n>0){
-		a=a*10 + (n%10);
-		n /= 10;
-	}return(a==b);
-}
+//int pa(int n){
+//	int a=0,b=n;
+//	while(n != 0){
+//		a=a*10 + n%10;
+//		n /= 10;
+//	}return(a==b);
+//}
+//
+//int uocPa(int n){
+//	int i;
+//	printf("Uoc cua N la:");
+//	for(i=1;i<=n;i++){
+//		if(n%i==0){
+//			printf("%d ",i);
+//		}
+//	}
+//}
+//
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	if(pa(n)){
+//		printf("N la so Palindrome");
+//	}else{
+//		printf("N Khong la so Palindrome\n");
+//		uocPa(n);
+//	}
+//}
+//*********************************************************************************************************************************
+//B3:In ra tổng tất cả các ước của N.
+//int pa(int n){
+//	int a=0,b=n;
+//	while(n != 0){
+//		a=a*10+n%10;
+//		n /= 10;
+//	}return(a==b);
+//}
+//int uocPa(int n){
+//	int i,sum=0;
+//	printf("Uoc cua N la:");
+//	for(i=1;i<=n;i++){
+//		if(n%i==0){
+//			printf("%d ",i);
+//			sum += i;
+//		}
+//	}printf("\n");
+//	printf("Tong cua N la:%d",sum);
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	if(pa(n)){
+//		printf("N la so Palindrome");
+//	}else{
+//		printf("N Khong la so Palindrome\n");
+//		uocPa(n);
+//	}
+//}
+//*********************************************************************************************************************************
+//B4:In ra số lượng các ước số của n.
+//int pa(int n){
+//	int a=0,b=n;
+//	while(n!=0){
+//		a=a*10+n%10;
+//		n /= 10;
+//	}return(a==b);
+//}
+//int uocPa(int n){
+//	int i,count=0;
+//	printf("Uoc cua N la:");
+//	for(i=1;i<=n;i++){
+//		if(n%i==0){
+//			printf("%d ",i);
+//			count++;
+//		}
+//	}printf("\n");
+//	printf("So luong cac uoc cua N la:%d",count);
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	if(pa(n)){
+//		printf("N la so Palindrome");
+//	}else{
+//		printf("N Khong la so Palindrome\n");
+//		uocPa(n);
+//	}
+//}
+//*********************************************************************************************************************************
+//B5:Nhập n,in ra các Palindrome từ 1 đến n.
 
-main(){
-	int n,i;printf("Nhap n:");scanf("%d",&n);
-	if(pa(n)){
-		printf("N la Palindrome");
-	}else{
-		printf("N khong la Palindrome\n");
-		printf("Uoc cua N la:");
-		for(i=1;i<=n;i++){
-			if(n % i == 0){
-				printf("%d ",i);
-			}
-		}printf("\n");
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
