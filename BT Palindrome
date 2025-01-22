@@ -4,14 +4,13 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
 //Bai 1:Hàm kiểm tra số fibonacy
 //int palindome(int n){
 //	int a=0,b=n;//a:reversed,b:original
-//	while(n > 0){
+//	while(n != 0){
 //		a = a * 10 + (n%10);
 //		n /= 10;
-//	}return(a=b);
+//	}return(a==b);
 //}
 //
 //main(){
@@ -30,7 +29,7 @@ int pa(int n){
 	while(n>0){
 		a=a*10 + (n%10);
 		n /= 10;
-	}return(a=b);
+	}return(a==b);
 }
 
 main(){
