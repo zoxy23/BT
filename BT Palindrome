@@ -271,30 +271,29 @@
 //	}
 //}
 //*********************************************************************************************************************************
-//B12:nhập n, tìm các số vừa là Palindrome vừa là Armstrong nhỏ hơn n(chưa hoàn thành)
-//int pa(int n){
-//	int a=0,b=n;//a:reversed b:original 
-//	while(n != 0){
-//		a=a*10+n%10;n/=10;
-//	}return(a==b);
-//}
-//int armstrong(int n){//a:sum b:original 
-//	int sum=0,b=n,digits=0;
-//	while(b != 0){
-//		b /= 10;
-//		digits++;
-//	}
-//	b=n;
-//	while(b != 0){
-//		sum += pow(b%10,digits);
-//		b /= 10;
-//	}return(n==sum);
-//}
-//main(){
-//	int n,i;printf("Nhap N:");scanf("%d",&n);
-//	for(i=1;i<=n;i++){
-//		if(pa(i) && armstrong(i)){
-//			printf("%d ",i);
-//		}
-//	}
-//}
+//B12:nhập n, tìm các số vừa là Palindrome vừa là Armstrong nhỏ hơn n
+int pa(int n){
+	int a=0,b=n;// a: đảo ngược, b: số ban đầu
+	while(n != 0){
+		a=a*10+n%10;n/=10;
+	}return(a==b);
+}
+int armstrong(int n){
+	int count=0,sum = 0,tmp = n;
+	while(n){// Đếm số chữ số của n
+		count++;
+		n/=10;
+	}n=tmp;
+	while(n){// Tính tổng các chữ số nâng lên lũy thừa của số chữ số
+		sum += pow(n%10,count);
+		n /= 10;
+	}return(sum==tmp);
+}
+main(){
+	int n,i;printf("Nhap N:");scanf("%d",&n);
+	for(i=1;i<=n;i++){
+		if(pa(i) && armstrong(i)){
+			printf("%d ",i);
+		}
+	}
+}
