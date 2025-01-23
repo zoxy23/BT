@@ -4,4 +4,319 @@
 #include<stdlib.h>
 #include<stdbool.h>
 
-//Bai 1:Hàm kiểm tra số palindrome
+//1 153 370 371 407 1634 8208 9474 54748 92727 93084 
+//548834 1741725 2421449 2467805 2751536 4024105 4431977 5162188 5985985
+//*********************************************************************************************************************************
+//Bai 1:Hàm kiểm tra số Armstrong
+//int armstrong(int n){
+//	int count=0,sum = 0,tmp = n;
+//	while(n){// Đếm số chữ số của n
+//		count++;
+//		n/=10;
+//	}n=tmp;
+//	while(n){// Tính tổng các chữ số nâng lên lũy thừa của số chữ số
+//		sum += pow(n%10,count);
+//		n /= 10;
+//	}return(sum==tmp);
+//}
+//int main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	if(armstrong(n)){
+//		printf("N la so Armstrong");
+//	}else{
+//		printf("N khong la so Armstrong");
+//	}
+//}
+//*********************************************************************************************************************************
+//B2:Nếu không phải Armstrong,in ra các ước của nó
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum += pow(n%10,count);n/=10;
+//	}return(sum==tmp);
+//}
+//int uocArm(int n){
+//	int i;
+//	printf("Uoc cua N la:");
+//	for(i=1;i<=n;i++){
+//		if(n%i==0){
+//			printf("%d ",i);
+//		}
+//	}
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	if(arm(n)){
+//		printf("N la so Armstrong");
+//	}else{
+//		printf("N khong la so Armstrong");
+//		uocArm(n);
+//	}
+//}
+//*********************************************************************************************************************************
+//B3:In ra tổng tất cả các ước của N.
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum+=pow(n%10,count);n/=10;
+//	}return sum==tmp;
+//}
+//int uocArm(int n){
+//	int i,sum=0;
+//	printf("Uoc cua N la:");
+//	for(i=1;i<=n;i++){
+//		if(n%i==0){
+//			printf("%d ",i);
+//			sum += i;
+//		}
+//	}printf("\n");
+//	printf("Tong tat ca uoc cua N la:%d",sum);
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	if(arm(n)){
+//		printf("N la so Armstrong");
+//	}else{
+//		printf("N khong la so Armstrong\n");
+//		uocArm(n);
+//	}
+//}
+//*********************************************************************************************************************************
+//B4:In ra số lượng các ước số của n.
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum += pow(n%10,count);n/=10;
+//	}return sum == tmp;
+//}
+//int uocArm(int n){
+//	int i,count=0;
+//	printf("Uoc cua N la:");
+//	for(i=1;i<=n;i++){
+//		if(n%i==0){
+//			printf("%d ",i);
+//			count++;
+//		}
+//	}printf("\n");
+//	printf("So luong cac uoc so cua N la:%d",count);
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	if(arm(n)){
+//		printf("N la so Armstrong");
+//	}else{
+//		printf("N khong la so Armstrong\n");
+//		uocArm(n);
+//	}
+//}
+//*********************************************************************************************************************************
+//B5:Nhập n,in ra các Armstrong từ 1 đến n.
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum+=pow(n%10,count);
+//		n/=10;
+//	}return sum==tmp;
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	for(i=1;i<=n;i++){
+//		if(arm(i)){
+//			printf("%d ",i);
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B6:In ra n số Armstrong đầu tiên.
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum+=pow(n%10,count);n/=10;
+//	}return sum == tmp;
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	int count=0;
+//	for(i=1;count<n;i++){
+//		if(arm(i)){
+//			printf("%d ",i);
+//			count++;
+//		}i++;
+//	}
+//}
+//*********************************************************************************************************************************
+//B7:In ra 3 số Armstrong lớn hơn n.
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum+=pow(n%10,count);n/=10;
+//	}return sum==tmp;
+//}
+//main(){
+//	int n,i,sohientai;printf("Nhap N:");scanf("%d",&n);
+//	printf("3 so Armstrong lon hon N la:");
+//	int count_i=0;
+//	for(sohientai=n+1;count_i < 3;sohientai++){
+//		if(arm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_i++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B8:In ra 2 số Armstrong, một số lớn hơn và một số nhỏ hơn n (gần n nhất).
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum += pow(n%10,count);n/=10;
+//	}return(sum==tmp);
+//}
+//main(){
+//	int n,i,j,sohientai;printf("Nhap N:");scanf("%d",&n);
+//	int count_i=0,count_j=0;
+//	printf("So lon hon N la:");
+//	for(sohientai=n-1;count_i < 1;sohientai--){
+//		if(arm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_i++;
+//		}
+//	}printf("\n");
+//	printf("So nho hon N la:");
+//	for(sohientai=n+1;count_j < 1;sohientai++){
+//		if(arm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B9:In ra 4 số Armstrong, 2 số lớn hơn và 2 số nhỏ hơn n.
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum+=pow(n%10,count);n/=10;
+//	}return(sum==tmp);
+//}
+//main(){
+//	int n,i,j,sohientai;printf("Nhap N:");scanf("%d",&n);
+//	int count_i=0,count_j=0;
+//	printf("2 so nho hon N la:");
+//	for(sohientai=n-1;count_i<2;sohientai--){
+//		if(arm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_i++;
+//		}
+//	}printf("\n");
+//	printf("2 so lon hon N la:");
+//	for(sohientai=n+1;count_j<2;sohientai++){
+//		if(arm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B10:Nhập n, p, q, in ra p số Armstrong nhỏ hơn n và q số Armstrong lớn hơn n.
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum+=pow(n%10,count);n/=10;
+//	}return(sum==tmp);
+//}
+//main(){
+//	int n,p,q,sohientai,count_i=0,count_j=0;//p:so nho hon N
+//	printf("Nhap N:");scanf("%d%d%d",&n,&p,&q);//q so lon hon N
+//	printf("So(P) Armstrong nho hon N la:");
+//	for(sohientai=n-1;count_i < p;sohientai--){
+//		if(arm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_i++;
+//		}
+//	}printf("\n");
+//	printf("So(Q) Armstrong lon hon N la:");
+//	for(sohientai=n+1;count_j < p;sohientai++){
+//		if(arm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B11:In ra các số Armstrong (có 3 hoặc có 4 chữ số) mà có 
+//tổng các chữ số chia hết cho 5.
+//int arm(int n){
+//	int sum=0,count=0,tmp=n;
+//	while(n){
+//		count++;n/=10;
+//	}n=tmp;
+//	while(n){
+//		sum+=pow(n%10,count);n/=10;
+//	}return(sum==tmp);
+//}
+//int sum(int n){
+//	int sum=0;
+//	while(n){
+//		sum += n % 10;
+//		n /= 10;
+//	}
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	for(i=100;i<=n;i++){
+//		if(arm(i) && sum(i) % 5 == 0){
+//			printf("%d ",i);
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B12:nhập n, tìm các số vừa là May mắn vừa là Armstrong nhỏ hơn n
+int armstrong(int n){
+	int sum=0,count=0,tmp=n;
+	while(n){
+		count++;n/=10;
+	}n=tmp;
+	while(n){
+		sum+=pow(n%10,count);n/=10;
+	}return(sum==tmp);
+}
+int mayman(int n){
+	
+}
+main(){
+	int n,i;printf("Nhap N:");scanf("%d",&n);
+	for(i=1,i<=n;i++){
+		if(armstrong(i) && mayman(i)){
+			printf("%d ",i);
+		}
+	}
+}
+
+
+
