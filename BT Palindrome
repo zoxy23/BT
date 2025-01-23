@@ -247,38 +247,54 @@
 //*********************************************************************************************************************************
 //B11:In ra các số Palindrome (có 3 hoặc có 4 chữ số) mà có 
 //tổng các chữ số chia hết cho 5.
-int pa(int n){
-	int a=0,b=n;
-	while(n != 0){
-		a=a*10+n%10;n/=10;
-	}return(a==b);
-}
-int sum(int n){
-	int sum = 0;
-	while(n > 0){
-		sum += n % 10;
-		n /= 10;
-	}
-}
-main(){
-	int i,n;printf("Nhap N:");scanf("%d",&n);
-	int tong=0;
-	printf("Cac so Palindrome co tong cac chu so chia het cho 5:\n");
-	for(i=100;i<=n;i++){
-		if(pa(i) && sum(i) % 5 == 0){
-			printf("%d ",i);
-		}
-	}
-}
+//int pa(int n){
+//	int a=0,b=n;
+//	while(n != 0){
+//		a=a*10+n%10;n/=10;
+//	}return(a==b);
+//}
+//int sum(int n){
+//	int sum = 0;
+//	while(n > 0){
+//		sum += n % 10;
+//		n /= 10;
+//	}
+//}
+//main(){
+//	int i,n;printf("Nhap N:");scanf("%d",&n);
+//	int tong=0;
+//	printf("Cac so Palindrome co tong cac chu so chia het cho 5:\n");
+//	for(i=100;i<=n;i++){
+//		if(pa(i) && sum(i) % 5 == 0){
+//			printf("%d ",i);
+//		}
+//	}
+//}
 //*********************************************************************************************************************************
-//B12:nhập n, tìm các số vừa là Palindrome vừa là Fibonacy nhỏ hơn n 
-
-
-
-
-
-
-
-
-
-
+//B12:nhập n, tìm các số vừa là Palindrome vừa là Armstrong nhỏ hơn n(chưa hoàn thành)
+//int pa(int n){
+//	int a=0,b=n;//a:reversed b:original 
+//	while(n != 0){
+//		a=a*10+n%10;n/=10;
+//	}return(a==b);
+//}
+//int armstrong(int n){//a:sum b:original 
+//	int sum=0,b=n,digits=0;
+//	while(b != 0){
+//		b /= 10;
+//		digits++;
+//	}
+//	b=n;
+//	while(b != 0){
+//		sum += pow(b%10,digits);
+//		b /= 10;
+//	}return(n==sum);
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	for(i=1;i<=n;i++){
+//		if(pa(i) && armstrong(i)){
+//			printf("%d ",i);
+//		}
+//	}
+//}
