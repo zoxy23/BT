@@ -7,8 +7,8 @@
 +++Khái niệm:Số may mắn là số  x và tính tổng bình phương y các chữ số của x,
 sau đó tiếp tục tính tổng bình phương các chữ số của y cho đến khi thu được kết quả là 1
 +++Ví dụ:7 là số may mắn vì:7² = 49|4² + 9² = 97|9² + 7² = 130|1² + 3² + 0² = 10|1² + 0² = 1
-+++100 số may mắn đầu tiên:1, 7, 10, 13, 19, 23, 28, 31, 32, 44, 49, 68, 70, 79, 82, 86, 91, 94, 97, 100, 103, 109,
-129, 130, 133, 139, 167, 176, 188, 190, 192, 193, 203, 208, 219, 226, 230, 236, 239, 262, 263, 280
++++100 số may mắn đầu tiên:1, 7, 10, 13, 19, 23, 28, 31, 32, 44, 49, 68, 70, 79, 82, 86, 91, 94, 97, 
+100, 103, 109,129, 130, 133, 139, 167, 176, 188, 190, 192, 193, 203, 208, 219, 226, 230, 236, 239, 262, 263, 280
 */
 //*********************************************************************************************************************************
 //Bai 1:Hàm kiểm tra số
@@ -190,12 +190,106 @@ sau đó tiếp tục tính tổng bình phương các chữ số của y cho đ
 //		}
 //	}
 //}
-
-
-
-
-
-
+//*********************************************************************************************************************************
+//B7:In ra 3 số lớn hơn n.
+//int tbp(int n){
+//	int sum=0,digit;
+//	while(n){
+//		digit=n%10;sum+=digit*digit;n/=10;
+//	}return sum;
+//}
+//int smm(int n){
+//	int a=n,b=n;
+//	for(;;){
+//		a=tbp(a);b=tbp(b);b=tbp(b);
+//		if(b==1)return 1;
+//		if(a==b)return 0;
+//	}
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	int sohientai,count=0;
+//	for(sohientai=n+1;count < 3;sohientai++){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B8:In ra 2 số một số lớn hơn và một số nhỏ hơn n (gần n nhất).
+//int tbp(int n){
+//	int sum=0,digit;
+//	while(n){
+//		digit=n%10;sum+=digit*digit;n/=10;
+//	}return sum;
+//}
+//int smm(int n){
+//	int a=n,b=n;
+//	for(;;){
+//		a=tbp(a);b=tbp(b);b=tbp(b);
+//		if(b==1)return 1;
+//		if(a==b)return 0;
+//	}
+//}
+//main(){
+//	int n,i,j;printf("Nhap N:");scanf("%d",&n);
+//	int sohientai,count_i=0,count_j=0;
+//	printf("So nho hon N la:");
+//	for(sohientai=n-1;count_i<1;sohientai--){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_i++;
+//		}
+//	}printf("\n");
+//	printf("So lon hon N la:");
+//	for(sohientai=n+1;count_j<1;sohientai++){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B9:In ra 4 số , 2 số lớn hơn và 2 số nhỏ hơn n.
+int tbp(int n){
+	int sum=0,digit;
+	while(n){
+		digit=n%10;sum+=digit*digit;n/=10;
+	}return sum;
+}
+int smm(int n){
+	int a=n,b=n;
+	for(;;){
+		a=tbp(a);b=tbp(b);b=tbp(b);
+		if(a==b)return 0;
+		if(b==1)return 1;
+	}
+}
+//main(){
+//	int n,i,j;printf("Nhap N:");scanf("%d",&n);
+//	int sohientai,count_i=0,count_j=0;
+//	printf("So nho hon N la:");
+//	for(sohientai=n-1;count_i < 2;sohientai--){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_i++;
+//		}
+//	}printf("\n");
+//	printf("So lon hon N la:");
+//	for(sohientai=n+1;count_j < 2;sohientai++){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B10:Nhập n, p, q, in ra p số nhỏ hơn n và q số Armstrong lớn hơn n.
+//*********************************************************************************************************************************
+//B11:In ra các số Armstrong (có 3 hoặc có 4 chữ số) mà có 
+//*********************************************************************************************************************************
+//B12:nhập n, tìm các số vừa là May mắn vừa là Số Hạnh Phúc nhỏ hơn n
 
 
 
