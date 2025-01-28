@@ -296,15 +296,6 @@
 //}
 //*********************************************************************************************************************************
 //B12:nhập n, tìm các số vừa là May mắn vừa là Armstrong nhỏ hơn n
-int armstrong(int n){
-	int sum=0,count=0,tmp=n;
-	while(n){
-		count++;n/=10;
-	}n=tmp;
-	while(n){
-		sum+=pow(n%10,count);n/=10;
-	}return(sum==tmp);
-}
 int tbp(int n){
 	int sum=0,digit;
 	while(n){
@@ -315,18 +306,28 @@ int smm(int n){
 	int a=n,b=n;
 	for(;;){
 		a=tbp(a);b=tbp(b);b=tbp(b);
-		if(a==b)return 0;
 		if(b==1)return 1;
+		if(a==b)return 0;
 	}
 }
-main(){
+int arm(int n){
+	int count=0,sum = 0,tmp = n;
+	while(n){
+		count++;
+		n/=10;
+	}n=tmp;
+	while(n){
+		sum += pow(n%10,count);
+		n /= 10;
+	}return(sum==tmp);
+}
+int main(){
 	int n,i;printf("Nhap N:");scanf("%d",&n);
-	for(i=1,i<=n;i++){
-		if(armstrong(i) && mayman(i)){
+	for(i=1;i<=n;i++){
+		if(arm(i) && smm(i)){
 			printf("%d ",i);
 		}
 	}
 }
-
 
 
