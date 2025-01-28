@@ -305,8 +305,19 @@ int armstrong(int n){
 		sum+=pow(n%10,count);n/=10;
 	}return(sum==tmp);
 }
-int mayman(int n){
-	
+int tbp(int n){
+	int sum=0,digit;
+	while(n){
+		digit=n%10;sum+=digit*digit;n/=10;
+	}return sum;
+}
+int smm(int n){
+	int a=n,b=n;
+	for(;;){
+		a=tbp(a);b=tbp(b);b=tbp(b);
+		if(a==b)return 0;
+		if(b==1)return 1;
+	}
 }
 main(){
 	int n,i;printf("Nhap N:");scanf("%d",&n);
