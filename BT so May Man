@@ -244,7 +244,20 @@ sau đó tiếp tục tính tổng bình phương các chữ số của y cho đ
 //	}printf("\n");
 //	printf("So lon hon N la:");
 //	for(sohientai=n+1;count_j<1;sohientai++){
-//		if(smm(sohientai)){
+//		if(smm(sohientai)){//int tbp(int n){
+//	int sum=0,digit;
+//	while(n){
+//		digit=n%10;sum+=digit*digit;n/=10;
+//	}return sum;
+//}
+//int smm(int n){
+//	int a=n,b=n;
+//	for(;;){
+//		a=tbp(a);b=tbp(b);b=tbp(b);
+//		if(a==b)return 0;
+//		if(b==1)return 1;
+//	}
+//}
 //			printf("%d ",sohientai);
 //			count_j++;
 //		}
@@ -252,20 +265,7 @@ sau đó tiếp tục tính tổng bình phương các chữ số của y cho đ
 //}
 //*********************************************************************************************************************************
 //B9:In ra 4 số , 2 số lớn hơn và 2 số nhỏ hơn n.
-int tbp(int n){
-	int sum=0,digit;
-	while(n){
-		digit=n%10;sum+=digit*digit;n/=10;
-	}return sum;
-}
-int smm(int n){
-	int a=n,b=n;
-	for(;;){
-		a=tbp(a);b=tbp(b);b=tbp(b);
-		if(a==b)return 0;
-		if(b==1)return 1;
-	}
-}
+
 //main(){
 //	int n,i,j;printf("Nhap N:");scanf("%d",&n);
 //	int sohientai,count_i=0,count_j=0;
@@ -286,19 +286,69 @@ int smm(int n){
 //}
 //*********************************************************************************************************************************
 //B10:Nhập n, p, q, in ra p số nhỏ hơn n và q số Armstrong lớn hơn n.
+//int tbp(int n){
+//	int sum=0,digit;
+//	while(n){
+//		digit=n%10;sum+=digit*digit;n/=10;
+//	}return sum;
+//}
+//int smm(int n){
+//	int a=n,b=n;
+//	for(;;){
+//		a=tbp(a);b=tbp(b);b=tbp(b);
+//		if(a==b)return 0;
+//		if(b==1)return 1;
+//	}
+//}
+//main(){
+//	int n,p,q,sohientai;printf("Nhap N P Q:");scanf("%d%d%d",&n,&p,&q);
+//	int i,count_i=0;
+//	printf("So nho hon N la ");//P la so nho hon N
+//	for(i=n-1;count_i<p;i--){
+//		if(smm(i)){
+//			printf("%d ",i);
+//			count_i++;
+//		}
+//	}printf("\n");
+//	int j,count_j=0;
+//	printf("So lon hon N la:");//Q la so lon hon N
+//	for(j=n+1;count_j<q;j++){
+//		if(smm(j)){
+//			printf("%d ",j);
+//			count_j++;
+//		}
+//	}
+//}
 //*********************************************************************************************************************************
-//B11:In ra các số Armstrong (có 3 hoặc có 4 chữ số) mà có 
+//B11:In ra các số (có 3 hoặc có 4 chữ số) mà có tổng các chữ số chia hết cho 5.
+//int tbp(int n){
+//	int sum=0,digit;
+//	while(n){
+//		digit=n%10;sum+=digit*digit;n/=10;
+//	}return sum;
+//}
+//int smm(int n){
+//	int a=n,b=n;
+//	for(;;){
+//		a=tbp(a);b=tbp(b);b=tbp(b);
+//		if(a==b)return 0;
+//		if(b==1)return 1;
+//	}
+//}
+//int sum(int n){
+//	int sum=0,i;
+//	while(n){
+//		sum += n % 10;n/=10;
+//	}return sum;
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	for(i=100;i<=n;i++){
+//		if(smm(i) && sum(i) % 5 == 0){
+//			printf("%d ",i);
+//		}
+//	}
+//}
+
 //*********************************************************************************************************************************
 //B12:nhập n, tìm các số vừa là May mắn vừa là Số Hạnh Phúc nhỏ hơn n
-
-
-
-
-
-
-
-
-
-
-
-
