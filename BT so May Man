@@ -5,32 +5,25 @@
 #include<stdbool.h>
 
 /*
-+++Khái niệm:Số may mắn là số chỉ chứa số 4 và 7
-+++Ví dụ:7 là Số hạnh phúc vì:7² = 49|4² + 9² = 97|9² + 7² = 130|1² + 3² + 0² = 10|1² + 0² = 1
-+++100 Số hạnh phúc đầu tiên:4, 7, 44, 47, 74, 77, 444, 447, 474, 477, 744, 747, 774, 777, 4444, 4447, 4474, 4477, 4744, 4747, 4774, 4777, 7444, 7447, 7474, 7477, 
++++Khái niệm:Số may mắn là số chỉ chứa số 4 hoặc 7
++++100 Số may mắn đầu tiên:4, 7, 44, 47, 74, 77, 444, 447, 474, 477, 744, 747, 774, 777, 4444, 4447, 4474, 4477, 4744, 4747, 4774, 4777, 7444, 7447, 7474, 7477, 
 7744, 7747, 7774, 7777, 44444, 44447, 44474, 44477, 44744, 44747, 44774, 44777, 47444, 47447, 47474, 47477, 47744, 47747
 */
 // Hàm kiểm tra chuỗi chỉ chứa các ký tự '4' và '7'
-int check(char n[]) {
-    for (int i = 0; n[i] != '\0'; i++) {
-        if (n[i] != '4' && n[i] != '7') {
-            return 0;  // Trả về 0 nếu có ký tự không phải '4' hoặc '7'
-        }
-    }
-    return 1;  // Trả về 1 nếu tất cả các ký tự là '4' hoặc '7'
+int smm(int n){
+	int digit;
+	while(n){
+		digit=n%10;
+		n=n/10;
+		if(digit == 4 || digit == 7)	return 1;
+		else							return 0;
+	}return 0;
 }
-
-int main() {
-    int t;
-    scanf("%d", &t);  // Đọc số lượng test case
-    while (t--) {
-        char n[100];  // Giả sử độ dài chuỗi không vượt quá 100 ký tự
-        scanf("%s", n);  // Đọc chuỗi n
-        if (check(n)) {
-            printf("YES\n");
-        } else {
-            printf("NO\n");
-        }
-    }
-    return 0;
+main(){
+	int n;printf("Nhap N:");scanf("%d",&n);
+	if(smm(n)){
+		printf("YES");
+	}else{
+		printf("NO");
+	}
 }
