@@ -9,21 +9,258 @@
 +++100 Số may mắn đầu tiên:4, 7, 44, 47, 74, 77, 444, 447, 474, 477, 744, 747, 774, 777, 4444, 4447, 4474, 4477, 4744, 4747, 4774, 4777, 7444, 7447, 7474, 7477, 
 7744, 7747, 7774, 7777, 44444, 44447, 44474, 44477, 44744, 44747, 44774, 44777, 47444, 47447, 47474, 47477, 47744, 47747
 */
+//*********************************************************************************************************************************
+//Bai 1:Hàm kiểm tra số
 // Hàm kiểm tra chuỗi chỉ chứa các ký tự '4' và '7'
-int smm(int n){
-	int digit;
-	while(n){
-		digit=n%10;
-		n=n/10;
-		if(digit == 4 || digit == 7)	return 1;
-		else							return 0;
-	}return 0;
-}
-main(){
-	int n;printf("Nhap N:");scanf("%d",&n);
-	if(smm(n)){
-		printf("YES");
-	}else{
-		printf("NO");
-	}
-}
+//int smm(int n) {
+//    while (n) {
+//        int digit = n % 10;
+//        if (digit != 4 && digit != 7) return 0; 
+//        n /= 10;
+//    }return 1; 
+//}
+//main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	if(smm(n)){
+//		printf("YES");
+//	}else{
+//		printf("NO");
+//	}
+//}
+//*********************************************************************************************************************************
+//B2:Nếu không phải,in ra các ước của nó
+//int smm(int n) {
+//    while (n) {
+//        int digit = n % 10;
+//        if (digit != 4 && digit != 7) return 0; 
+//        n /= 10;
+//    }return 1; 
+//}
+//main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	int i;
+//	if(smm(n)){
+//		printf("N la so may may.");
+//	}else{
+//		printf("N khong la so may man.\n");
+//		printf("Uoc cua N la:");
+//		for(i=1;i<=n;i++){
+//			if(n%i==0){
+//				printf("%d ",i);
+//			}
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B3:In ra tổng tất cả các ước của N.
+//int smm(int n) {
+//    while (n) {
+//        int digit = n % 10;
+//        if (digit != 4 && digit != 7) return 0; 
+//        n /= 10;
+//    }return 1; 
+//}
+//main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	int i,sum=0;
+//	if(smm(n)){
+//		printf("N la so may may.");
+//	}else{
+//		printf("N khong la so may man.\n");
+//		printf("Uoc cua N la:");
+//		for(i=1;i<=n;i++){
+//			if(n%i==0){
+//				printf("%d ",i);
+//				sum +=i;
+//			}
+//		}
+//	}printf("\n");
+//	printf("Tong tat ca cac uoc cua N la:%d",sum);
+//}
+//*********************************************************************************************************************************
+//B4:In ra số lượng các ước số của n.
+//int smm(int n) {
+//    while (n) {
+//        int digit = n % 10;
+//        if (digit != 4 && digit != 7) return 0; 
+//        n /= 10;
+//    }return 1; 
+//}
+//main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	int i,count=0;
+//	if(smm(n)){
+//		printf("N la so may may.");
+//	}else{
+//		printf("N khong la so may man.\n");
+//		printf("Uoc cua N la:");
+//		for(i=1;i<=n;i++){
+//			if(n%i==0){
+//				printf("%d ",i);
+//				count++;
+//			}
+//		}
+//	}printf("\n");
+//	printf("So luong cac uoc cua N la:%d",count);
+//}
+//*********************************************************************************************************************************
+//B5:Nhập n,in ra các số từ 1 đến n.
+//int smm(int n) {
+//    while (n) {
+//        int digit = n % 10;
+//        if (digit != 4 && digit != 7) return 0; 
+//        n /= 10;
+//    }return 1; 
+//}
+//main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	int i;
+//	for(i=1;i<=n;i++){
+//		if(smm(i)){
+//			printf("%d ",i);
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B6:In ra n số đầu tiên.
+//int smm(int n){
+//	int digit;
+//	while(n){
+//		digit=n%10;
+//		if(digit!=4&&digit!=7)return 0;
+//		n/=10;
+//	}return 1;
+//}
+//main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	int i,count=0;
+//	for(i=1;count<n;i++){
+//		if(smm(i)){
+//			printf("%d ",i);
+//			count++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B7:In ra 3 số lớn hơn n.
+//int smm(int n){
+//	int digit;
+//	while(n){
+//		digit=n%10;
+//		if(digit!=4&&digit!=7)return 0;
+//		n/=10;
+//	}return 1;
+//}
+//main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	int count_i=0,sohientai;
+//	for(sohientai=n+1;count_i<3;sohientai++){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_i++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B8:In ra 2 số một số lớn hơn và một số nhỏ hơn n (gần n nhất).
+//int smm(int n){
+//	int digit;
+//	while(n){
+//		digit=n%10;
+//		if(digit!=4&&digit!=7)	return 0;
+//		n/=10;
+//	}return 1;
+//}
+//main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	int sohientai,count_i=0,count_j=0;
+//	for(sohientai=n-1;count_i<1;sohientai--){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_i++;
+//		}
+//	}
+//	for(sohientai=n+1;count_j<1;sohientai++){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B9:In ra 4 số , 2 số lớn hơn và 2 số nhỏ hơn n.
+//int smm(int n){
+//	int digit=0;
+//	while(n){
+//		digit=n%10;
+//		if(digit!=4&&digit!=7)	return 0;
+//		n/=10;
+//	}return 1;
+//}
+//main(){
+//	int n;printf("Nhap N:");scanf("%d",&n);
+//	int sohientai,count_i=0,count_j=0;
+//	printf("So nho hon N la:");
+//	for(sohientai=n-1;count_i<2;sohientai--){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_i++;
+//		}
+//	}printf("\n");
+//	printf("So lon hon N la:");
+//	for(sohientai=n+1;count_j<2;sohientai++){
+//		if(smm(sohientai)){
+//			printf("%d ",sohientai);
+//			count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B10:Nhập n, p, q, in ra p số nhỏ hơn n và q số lớn hơn n.
+//int smm(int n){
+//	int digit;
+//	while(n){
+//		digit=n%10;
+//		if(digit!=4&&digit!=7)return 0;
+//		n/=10;
+//	}return 1;
+//}
+//main(){
+//	int n,p,q;printf("Nhap N P Q:");scanf("%d%d%d",&n,&p,&q);
+//	int count_i=0,count_j=0,i,j;
+//	printf("So nho hon N la:");
+//	for(i=n-1;count_i<p;i--){
+//		if(smm(i)){
+//			printf("%d ",i);
+//			count_i++;
+//		}
+//	}printf("\n");
+//	printf("So lon hon N la:");
+//	for(j=n+1;count_j<q;j++){
+//		if(smm(j)){
+//			printf("%d ",j);
+//			count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B11:In ra các số (có 3 hoặc có 4 chữ số) mà có tổng các chữ số chia hết cho 5.
+
+//*********************************************************************************************************************************
+//B12:nhập n, tìm các số vừa là May mắn vừa là Số Hạnh Phúc nhỏ hơn n
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
