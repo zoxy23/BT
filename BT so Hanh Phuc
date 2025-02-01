@@ -352,3 +352,36 @@ sau đó tiếp tục tính tổng bình phương các chữ số của y cho đ
 
 //*********************************************************************************************************************************
 //B12:nhập n, tìm các số vừa là May mắn vừa là Số Hạnh Phúc nhỏ hơn n
+//int smm(int n){
+//	int digit;
+//	while(n){
+//		digit=n%10;
+//		if(digit!=4&&digit!=7)return 0;
+//		n/=10;
+//	}return 1;
+//}
+//int tbp(int n){
+//	int sum=0,digit;
+//	while(n){
+//		digit=n%10;
+//		sum+=digit*digit;
+//		n/=10;
+//	}return sum;
+//}
+//int shp(int n){
+//	int a=n,b=n;
+//	for(;;){
+//		a=tbp(a);b=tbp(b);b=tbp(b);
+//		if(a==b)return 0;
+//		if(b==1)return 1;
+//	}
+//}
+//
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	for(i=1;i<=n;i++){
+//		if(smm(i) && shp(i)){
+//			printf("%d ",i);
+//		}
+//	}
+//}
