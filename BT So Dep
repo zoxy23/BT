@@ -3,10 +3,228 @@
 #include<math.h>
 #include<stdlib.h>
 #include<stdbool.h>
-/*
-+++Khái niệm:Số may mắn là số chỉ chứa số 4 hoặc 7
-+++100 Số may mắn đầu tiên:4, 7, 44, 47, 74, 77, 444, 447, 474, 477, 744, 747, 774, 777, 4444, 4447, 4474, 4477, 4744, 4747, 4774, 4777, 7444, 7447, 7474, 7477, 
-7744, 7747, 7774, 7777, 44444, 44447, 44474, 44477, 44744, 44747, 44774, 44777, 47444, 47447, 47474, 47477, 47744, 47747
+/*Số đẹp:
+1.Cả 5 chữ số được sắp theo thứ tự tăng chặt từ trái qua phải.
+2.Cả 5 chữ số đều bằng nhau
+3.Ba chữ số đầu bằng nhau và hai chữ số cuối bằng nhau
+4.Cả 5 chữ số đều là 6 và/hoặc 8 (số lộc phát).
 */
+
+//******************************************************************************************************************************************
+int so_tang_dan(int n) {// Hàm kiểm tra 5 chữ số có tăng dần từ trái sang phải
+    int so_truoc = 10;
+    while (n > 0) {
+        int digit = n % 10;
+        if (digit >= so_truoc) return 0;
+        so_truoc = digit;
+        n /= 10;
+    }return 1;
+}
+int check1(int n) {// Hàm kiểm tra tất cả 5 chữ số có bằng nhau không
+    int so_cuoi_cung = n % 10;
+    while (n > 0) {
+        if (n % 10 != so_cuoi_cung) return 0;
+        n /= 10;
+    }return 1;   
+}
+int check2(int n) {// Hàm kiểm tra 3 chữ số đầu và 2 chữ số cuối có bằng nhau không
+    int ba_so_dau = n / 100,hai_so_sau = n % 100;
+    return (ba_so_dau / 10 == ba_so_dau % 10) && (ba_so_dau / 10 == ba_so_dau / 100) && (hai_so_sau / 10 == hai_so_sau % 10);         
+}
+
+int so_loc_phat(int n) {// Hàm kiểm tra tất cả 5 chữ số có đều là 6 hoặc 8 không
+    while (n > 0) {
+        int digit = n % 10;
+        if (digit != 6 && digit != 8) return 0;
+        n /= 10;
+    }return 1;  
+}
+int so_dep(int n) {// Hàm kiểm tra biển số đẹp
+    return so_tang_dan(n) || check1(n) || check2(n) || so_loc_phat(n);
+}
 //*********************************************************************************************************************************
-//Bai 1:Hàm kiểm tra số
+//Bai 1:Hàm kiểm tra số đẹp
+//main() {
+//    int n;printf("Nhap bien so xe (VD:99999): ");scanf("%d",&n);
+//    if (so_dep(n)) {
+//        printf("Bien so %d la bien so dep\n", n);
+//    } else {
+//        printf("Bien so %d khong phai la bien so dep\n", n);
+//    }
+//}
+//*********************************************************************************************************************************
+//B2:Nếu không phải,in ra các ước của nó
+//main() {
+//    int n,i;printf("Nhap bien so xe (VD:99999): ");scanf("%d",&n);
+//    if (so_dep(n)) {
+//        printf("Bien so %d la bien so dep\n", n);
+//    } else {
+//        printf("Bien so %d khong phai la bien so dep\n", n);
+//        printf("Uoc cua N la:");
+//        for(i=1;i<=n;i++){
+//        	if(n%i==0){
+//        		printf("%d ",i);
+//			}
+//		}
+//    }
+//}
+//*********************************************************************************************************************************
+//B3:In ra tổng tất cả các ước của N.
+//main(){
+//    int n,i;printf("Nhap bien so xe (VD:99999): ");scanf("%d",&n);
+//    int sum=0;
+//    if (so_dep(n)) {
+//        printf("Bien so %d la bien so dep\n", n);
+//    } else {
+//        printf("Bien so %d khong phai la bien so dep\n", n);
+//        printf("Uoc cua N la:");
+//        for(i=1;i<=n;i++){
+//        	if(n%i==0){
+//        		printf("%d ",i);
+//        		sum += i;
+//			}
+//		}
+//    }printf("\n");
+//    printf("Tong cac uoc cua N la:%d",sum);
+//}
+//*********************************************************************************************************************************
+//B4:In ra số lượng các ước số của n.
+//main(){
+//    int n,i;printf("Nhap bien so xe (VD:99999): ");scanf("%d",&n);
+//    int sum=0;
+//    int count=0;
+//    if (so_dep(n)) {
+//        printf("Bien so %d la bien so dep\n", n);
+//    } else {
+//        printf("Bien so %d khong phai la bien so dep\n", n);
+//        printf("Uoc cua N la:");
+//        for(i=1;i<=n;i++){
+//        	if(n%i==0){
+//        		printf("%d ",i);
+//        		sum += i;
+//        		count++;
+//			}
+//		}
+//    }printf("\n");
+//    printf("Tong cac uoc cua N la:%d",sum);printf("\n");
+//    printf("So luong cac uoc cua N la:%d",count);
+//}
+//*********************************************************************************************************************************
+//B5:Nhập n,in ra các số từ 1 đến n.
+//main(){
+//    int n,i;printf("Nhap bien so xe (VD:99999): ");scanf("%d",&n);
+//    printf("Cac so dep tu 1 den N la:");
+//	for(i=10000;i<=n;i++){
+//		if(so_dep(i)){
+//			printf("%d ",i);
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B6:In ra n số đầu tiên.
+//main(){
+//    int n,i;printf("Nhap N:");scanf("%d",&n);
+//    int count=0;
+//    printf("%d so dep dau tien la:",n);
+//	for(i=10000;count<n;i++){
+//		if(so_dep(i)){
+//			printf("%d ",i);
+//			count++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B7:In ra 3 số lớn hơn n.
+//main(){
+//    int n;printf("Nhap N:");scanf("%d",&n);
+//    int sohientai,i,count_i=0;
+//    printf("3 so lon hon N la:");
+//    for(sohientai=n+1;count_i<3;sohientai++){
+//    	if(so_dep(sohientai)){
+//    		printf("%d ",sohientai);
+//    		count_i++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B8:In ra 2 số đẹp, một số lớn hơn và một số nhỏ hơn n (gần n nhất).
+//main(){
+//    int n;printf("Nhap N:");scanf("%d",&n);
+//    int sohientai,i,count_i=0,j,count_j=0;
+//    printf("So nho hon N la:");
+//    for(sohientai=n-1;count_i<1;sohientai--){
+//    	if(so_dep(sohientai)){
+//    		printf("%d ",sohientai);
+//    		count_i++;
+//		}
+//	}printf("\n");
+//    printf("So lon hon N la:");
+//    for(sohientai=n+1;count_j<1;sohientai++){
+//    	if(so_dep(sohientai)){
+//    		printf("%d ",sohientai);
+//    		count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B9:In ra 4 số đẹp, 2 số lớn hơn và 2 số nhỏ hơn n.
+//main(){
+//    int n;printf("Nhap N:");scanf("%d",&n);
+//    int sohientai,i,count_i=0,j,count_j=0;
+//    printf("2 so nho hon N la:");
+//    for(sohientai=n-1;count_i<2;sohientai--){
+//    	if(so_dep(sohientai)){
+//    		printf("%d ",sohientai);
+//    		count_i++;
+//		}
+//	}printf("\n");
+//    printf("2 so lon hon N la:");
+//    for(sohientai=n+1;count_j<2;sohientai++){
+//    	if(so_dep(sohientai)){
+//    		printf("%d ",sohientai);
+//    		count_j++;
+//		}
+//	}
+//}
+//*********************************************************************************************************************************
+//B10:Nhập n, p, q, in ra p số đẹp nhỏ hơn n và q số Fibonacci lớn hơn n.
+main(){
+    int n;printf("Nhap N:");scanf("%d",&n);
+    int sohientai,i,count_i=0,j,count_j=0;
+    printf("2 so nho hon N la:");
+    for(sohientai=n-1;count_i<2;sohientai--){
+    	if(so_dep(sohientai)){
+    		printf("%d ",sohientai);
+    		count_i++;
+		}
+	}printf("\n");
+    printf("2 so lon hon N la:");
+    for(sohientai=n+1;count_j<2;sohientai++){
+    	if(so_dep(sohientai)){
+    		printf("%d ",sohientai);
+    		count_j++;
+		}
+	}
+}
+//*********************************************************************************************************************************
+//B11:In ra các số đẹp (có 3 hoặc có 4 chữ số) mà có tổng các chữ số chia hết cho 5
+//*********************************************************************************************************************************
+//B12:nhập n, tìm các số vừa là đẹp vừa là số hạnh phúc nhỏ hơn n 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
