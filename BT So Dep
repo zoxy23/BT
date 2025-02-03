@@ -188,43 +188,66 @@ int so_dep(int n) {// Hàm kiểm tra biển số đẹp
 //}
 //*********************************************************************************************************************************
 //B10:Nhập n, p, q, in ra p số đẹp nhỏ hơn n và q số Fibonacci lớn hơn n.
-main(){
-    int n;printf("Nhap N:");scanf("%d",&n);
-    int sohientai,i,count_i=0,j,count_j=0;
-    printf("2 so nho hon N la:");
-    for(sohientai=n-1;count_i<2;sohientai--){
-    	if(so_dep(sohientai)){
-    		printf("%d ",sohientai);
-    		count_i++;
-		}
-	}printf("\n");
-    printf("2 so lon hon N la:");
-    for(sohientai=n+1;count_j<2;sohientai++){
-    	if(so_dep(sohientai)){
-    		printf("%d ",sohientai);
-    		count_j++;
-		}
-	}
-}
+//main(){
+//    int n,p,q;printf("Nhap N:");scanf("%d",&n);
+//    printf("Nhap P(So nho hon N):");scanf("%d",&p);
+//    printf("Nhap Q(So lon hon N):");scanf("%d",&q);
+//    int sohientai,i,count_i=0,j,count_j=0;
+//    printf("(P)So nho hon N la:");
+//    for(sohientai=n-1;count_i<p;sohientai--){
+//    	if(so_dep(sohientai)){
+//    		printf("%d ",sohientai);
+//    		count_i++;
+//		}
+//	}printf("\n");
+//    printf("(Q)So lon hon N la:");
+//    for(sohientai=n+1;count_j<q;sohientai++){
+//    	if(so_dep(sohientai)){
+//    		printf("%d ",sohientai);
+//    		count_j++;
+//		}
+//	}
+//}
 //*********************************************************************************************************************************
 //B11:In ra các số đẹp (có 3 hoặc có 4 chữ số) mà có tổng các chữ số chia hết cho 5
+//int tong(int n){
+//	int sum=0;
+//	while(n){
+//		sum+=n%10;n/=10;
+//	}return sum;
+//}
+//main(){
+//    int n;printf("Nhap N:");scanf("%d",&n);
+//	int i;
+//	for(i=10000;i<=n;i++){
+//		if(so_dep(i) && tong(i) % 5 == 0){
+//			printf("%d ",i);
+//		}
+//	}
+//}
 //*********************************************************************************************************************************
 //B12:nhập n, tìm các số vừa là đẹp vừa là số hạnh phúc nhỏ hơn n 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//int tbp(int n){
+//	int digit,sum=0;
+//	while(n){
+//		digit = n % 10;
+//		sum+=digit*digit;
+//		n/=10;
+//	}return sum;
+//}
+//int so_hanh_phuc(int n){
+//	int a=n,b=n;
+//	for(;;){
+//		a=tbp(a);b=tbp(b);b=tbp(b);
+//		if(a==b)return 0;
+//		if(b==1)return 1;
+//	}
+//}
+//main(){
+//	int n,i;printf("Nhap N:");scanf("%d",&n);
+//	for(i=1;i<=n;i++){
+//		if(so_hanh_phuc(i) && so_dep(i)){
+//			printf("%d ",i);
+//		}
+//	}
+//}
