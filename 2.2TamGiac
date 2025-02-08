@@ -1,0 +1,91 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<stdlib.h>
+#include<stdbool.h>
+
+//# # # # # # # # # # #                #                          #
+//  # # # # # # # # #                # # #                      # # #
+//    # # # # # # #                # # # # #                  # # # # #
+//      # # # # #                # # # # # # #              # # # # # # #
+//        # # #                # # # # # # # # #          # # # # # # # # #
+//          #                # # # # # # # # # # #      # # # # # # # # # # #
+//         (j)                        (k)                 # # # # # # # # #
+//                                                          # # # # # # #
+//                                                            # # # # #
+//                                                              # # #
+//                                                                #
+//                                                               (l)
+//******************************************************************************************************
+//(j) //2*size-1:tam giác cân có chiều rộng lớn hơn chiều cao.
+// size - 1:Cột giữa  || size - 1 - i:cột trái || size - 1 + i:cột phải
+//j>=i:vẽ bên trái || j < 2*size-1-i:vẽ bên phải
+//int tam_giac_nguoc(int size){
+//	int i,j;
+//	for(i=0;i<size;i++){
+//		for(j=0;j<2*size-1;j++){
+//			if(i<=j && j < 2*size-1-i)	printf(" #");
+//			else	printf("  ");
+//		}printf("\n");
+//	}
+//}
+//main(){
+//	int size=6;
+//	tam_giac_nguoc(size);
+//}
+////******************************************************************************************************
+//(k)
+//int tamGiac(int size){
+//	int i,j;
+//	for(i=0;i<size;i++){
+//		for(j=0;j<=2*size-1;j++){
+//			if(j>=size-1-i && j <= size-1+i)	printf(" #");
+//			else 	printf("  ");
+//		}printf("\n");
+//	}
+//}
+//main(){
+//	int size=6;
+//	tamGiac(size);
+//}
+//******************************************************************************************************
+//(l) //size-1-i:in cột giữa //size-1+i:in cột phải	
+//int hinhThoi(int size){
+//	int i,j;
+//	for(i=0;i<size;i++){
+//		for(j=0;j<2*size-1;j++){
+//			if(j>=size-1-i && j <=size-1+i)	printf(" #");
+//			else printf("  ");
+//		}printf("\n");
+//	}
+//	for(i=size-2;i>=0;i--){//size-2 né lặp lại dòng giữa
+//		for(j=0;j<2*size-1;j++){
+//			if(j>=size-1-i && j<=size-1+i)	printf(" #");
+//			else printf("  ");
+//		}printf("\n");
+//	}
+//}
+//main(){
+//	int size=6;
+//	hinhThoi(size);
+//}
+//******************************************************************************************************
+void hinhKimCuong(int size) {
+    int i, j;
+    for (i = 0; i <= size; i++) {// Vẽ phần trên của kim cương
+        for (j = 1; j <= size - i; j++) printf("  ");// In khoảng trắng
+        for (j = 1; j <= 2 * i - 1; j++) printf(" #");// In dấu # 
+		printf("\n");  
+    }
+    for (i = size - 1; i >= 1; i--) {// Vẽ phần dưới của kim cương
+        for (j = 1; j <= size - i; j++) printf("  ");// In khoảng trắng
+        for (j = 1; j <= 2 * i - 1; j++)printf(" #");// In dấu #
+        printf("\n");
+    }
+}
+int main() {
+    int size;
+    printf("Nhap Size Cua Hinh: ");
+    scanf("%d", &size);
+    hinhKimCuong(size);
+}
