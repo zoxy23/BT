@@ -3,6 +3,7 @@
 #include<math.h>
 #include<stdlib.h>
 #include<stdbool.h>
+//********************************************************************************************
 //1.Viết code cho 3 thuật toán: Interchange, Selection, bubble sort.
 //void swap(int *a, int *b) {// Hàm hoán đổi giá trị hai số nguyên(Interchange)
 //    int temp = *a;*a = *b;*b = temp;
@@ -17,7 +18,7 @@
 //}
 //void selectionSort(int arr[], int n) {// Selection Sort(sắp xếp chọn)
 //	int i,j,minIndex;
-//    for ( i = 0; i < n - 1; i++) {
+//    for ( i = 0; i < n; i++) {
 //        minIndex = i;
 //        for ( j = i + 1; j < n; j++) {
 //            if (arr[j] < arr[minIndex]) {
@@ -52,9 +53,9 @@
 //    selectionSort(arr2, n);printf("Mang sau khi sap xep bang Selection Sort: ");printArray(arr2, n);
 //    bubbleSort(arr3, n);printf("Mang sau khi sap xep bang Bubble Sort: ");printArray(arr3, n);
 //}
-
+//********************************************************************************************
 //2.Nhập mảng n phần tử,sắp xếp các phần tử i ở vị trí chẵn (i) (hoặc các phần tử có giá trị chẵn a[i])
-//Dùng Bubble Sort
+//Dùng Bubble Sort or selectionSort
 //void swap(int *a,int *b){
 //	int temp=*a;*a=*b;*b=temp;
 //}
@@ -69,70 +70,108 @@
 //	}
 //}
 //void giaTriChan(int arr[],int n){
-//	int i,j,tempCount = 0;
+//	int i,tempCount=0;
+//	int temp[n];
+//    for(i=0;i<n;i++){//Chọn các phần tử số ch
+//        if(i%2==0 || arr[i]%2==0) {
+//            temp[tempCount++] = arr[i];
+//        }
+//    }	
+//    bubbleSort(temp, tempCount);//Sắp xếp lại các phần tử
+//    int tempIndex = 0;//Mảng gốc
+//    for (i = 0; i < n; i++) {
+//        if (i % 2 == 0 || arr[i] % 2 == 0) {
+//            arr[i] = temp[tempIndex++];
+//        }
+//    }
+//}
+//void printArray(int arr[],int n){
+//	int i;
 //	for(i=0;i<n;i++){
-//		if(i%2==0||arr[i]%2==0){
-//			j = tempCount - 1;//phương pháp Insertion Sort để chèn phần tử vào đúng vị trí
-//			while
-//		}
+//		printf("%d ",arr[i]);
 //	}
 //}
-//
-//void printArray(int arr[],int n){
-//	int i;printf("Nhap cac phan tu cua mang: ");
-//	for(i=0;i<n;i++)scanf("%d",&arr[i]);
-//}
 //main(){
-//	int n;printf("Nhap N:");scanf("%d",&n);
+//	int n,i;printf("Nhap so luong phan tu:");scanf("%d",&n);
+//	int arr[n];
+//	for(i=0;i<n;i++){
+//		printf("Nhap cac phan tu thu %d = ",i+1);
+//		scanf("%d",&arr[i]);
+//	}
+//	giaTriChan(arr,n);
+//	printArray(arr,n);
 //}
-#include <stdio.h>
-
-void sortEvenIndicesOrEvenValues(int arr[], int n) {
-    int tempCount = 0;
-
-    // Vòng lặp duy nhất để lọc và sắp xếp trực tiếp trong mảng gốc
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 0 || arr[i] % 2 == 0) {
-            // Tìm vị trí chèn cho phần tử arr[i]
-            int key = arr[i];
-            int j = tempCount - 1;
-
-            // Dùng vòng lặp for để di chuyển phần tử lớn hơn về sau
-            for (; j >= 0 && arr[j] > key; j--) {
-                arr[j + 1] = arr[j]; // Di chuyển các phần tử lớn hơn về sau
-            }
-
-            // Đặt phần tử vào đúng vị trí
-            arr[j + 1] = key;
-            tempCount++; // Cập nhật số lượng phần tử đã lọc và sắp xếp
-        }
-    }
-}
-
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
-
-int main() {
-    int arr[] = {5, 8, 3, 10, 2, 7, 6};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    
-    sortEvenIndicesOrEvenValues(arr, n);
-    printArray(arr, n);
-    
-    return 0;
-}
-
-
-
-
-
-
-
-
+//********************************************************************************************
+//3.1Sắp xếp các phần tử có giá trị chẵn tăng dần,giá trị lẻ giảm dần
+//void swap(int *a,int *b){
+//	int temp=*a;*a=*b;*b=temp;
+//}
+//void selectionSort(int arr[], int n) {
+//	int i,j,m;//m=minIndex
+//    for(i=0;i<n;i++) {
+//        m = i;
+//        for(j=i+1;j<n;j++) {
+//            if(arr[j]<arr[m]) m = j;
+//        }swap(&arr[i], &arr[m]);
+//    }
+//}
+//void sapXepChanLe(int arr[],int n){
+//	int i,chan[n],le[n];
+//	int c=0,l=0;
+//	for(i=0;i<n;i++){
+//		if(arr[i]%2==0) chan[c++] = arr[i];
+//		else			le[l++]	= arr[i];
+//	}
+//	selectionSort(chan,c);
+//	selectionSort(le,l);
+//	for(i=0;i<c;i++)	printf("%d ",chan[i]);
+//	for(i=l-1;i>=0;i--)	printf("%d ",le[i]);
+//}
+//
+//main(){
+//	int n,i;printf("Nhap so luong phan tu:");scanf("%d",&n);
+//	int arr[n];
+//	for(i=0;i<n;i++){
+//		printf("Nhap cac phan tu thu %d = ",i+1);
+//		scanf("%d",&arr[i]);
+//	}
+//	sapXepChanLe(arr,n);
+//}
+//********************************************************************************************
+//3.2 Sắp xếp các phần tử theo tính chất chẵn lẻ
+//void swap(int *a,int *b){
+//	int temp=*a;*a=*b;*b=temp;
+//}
+//void selectionSort(int arr[], int n) {
+//	int i,j,m;//m=minIndex
+//    for(i=0;i<n;i++) {
+//        m = i;
+//        for(j=i+1;j<n;j++) {
+//            if(arr[j]<arr[m]) m = j;
+//        }swap(&arr[i], &arr[m]);
+//    }
+//}
+//void sapXepChanLe(int arr[],int n){
+//	int i,chan[n],le[n];
+//	int c=0,l=0;
+//	for(i=0;i<n;i++){
+//		if(arr[i]%2==0) chan[c++] = arr[i];
+//		else			le[l++]	= arr[i];
+//	}
+//	selectionSort(chan,c);
+//	selectionSort(le,l);
+//	for(i=0;i<c;i++)	printf("%d ",chan[i]);
+//	for(i=0;i<l;i++)	printf("%d ",le[i]);
+//}
+//main(){//a[]={2 5 3 1 9 8 10}
+//	int n,i;printf("Nhap so luong phan tu:");scanf("%d",&n);
+//	int arr[n];
+//	for(i=0;i<n;i++){
+//		printf("Nhap cac phan tu thu %d = ",i+1);
+//		scanf("%d",&arr[i]);
+//	}
+//	sapXepChanLe(arr,n);
+//}
 
 
 
