@@ -1,0 +1,65 @@
+//Con trỏ
+//void swap(int *a,int *b){
+//	int temp=*a;*a=*b;8b=temp;
+//}
+//****************************************************************************
+//pass by reference
+//main(){
+//	int a=300;
+//	int *ptr;
+//	ptr = &a;
+//	printf("Dia chi cua bien a:%d\n",&a);
+//	printf("Gia tri cua con tro ptr:%d\n",ptr);
+//	//
+//	printf("Gia tri cua bien a:%d\n",a);
+//	printf("Gia tri cua bien a ma con tro ptr dang quan ly:%d\n",*ptr);
+//	//
+//	*ptr =1000;//a=1000
+//	printf("Gia tri cua bien a:%d\n",a);
+//	printf("Gia tri cua bien a ma con tro ptr dang quan ly:%d\n",*ptr);
+//}
+//****************************************************************************
+//pass by value
+//void tang1(int n){
+//	n += 100;
+//}
+//void tang2(int *a){
+//	*a += 100;
+//}
+//void swap(int *a,int *b){
+//	int temp=*a;*a=*b;*b=temp;
+//}
+//main(){
+//	int x=1000,y=2000;
+//	swap(&x,&y);
+//	printf("%d %d",x,y);
+//}
+//****************************************************************************
+//&a[i] : (a+i)
+//a[i] : *(a+i)
+//main(){
+//	int a[5];
+//	int i;
+//	for(i=0;i<5;i++){
+//		scanf("%d",a+i);//i
+//	}
+//	for(i=0;i<5;i++){
+//		printf("%d ",*(a+i));
+//	}
+//}
+//****************************************************************************
+//Cấp phát động:int a[1000000]
+//Calloc
+//main(){
+//	//dataType *pointerName = (type_cast*)malloc(size_of_byte);
+//	//1 mảng có 1 triệu phần tử int
+//	int *ptr = (int*)malloc(1000000*sizeof(int));
+//	int n=5,i;
+//	for(i=0;i<n;i++){
+//		scanf("%d",&ptr[i]);
+//	}
+//	for(i=0;i<n;i++){
+//		printf("%d ",ptr[i]);
+//	}
+//	free(ptr);//giải phóng bộ nhớ xin cấp phát
+//}
