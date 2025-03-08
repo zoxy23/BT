@@ -905,8 +905,6 @@
 /*
 
 
-
-
 ===============STRING==================
 
 ===============STRING đảo ngược==================
@@ -1007,7 +1005,7 @@
 //	char temp[1000];
 //	strcpy(temp,s);// Sao chép chuỗi gốc sang temp
 //	int len = strlen(temp);
-//	//Thuật toán tách từ
+//	//Thuật toán tách từ không dùng Strtok
 //	char word[100][100];
 //	int count=0,i,j;
 //	int tuDauTien=0;
@@ -1086,30 +1084,283 @@
 
 
 */
-
-//1.Nhập string,cách nhau bời dấu cách,sort các từ theo sự tăng dần của độ dài,nếu cùng độ dài
-//thì sort theo chiều tăng dần của từ điển
-//(xét 2 trường hợp có tính đến và không tính đến chữ hoa,chữ thường)
-//Input: Quan Van lamTruong		//2TH:1.Có phân biệt chữ hoa, chữ thường (Ví dụ: "Apple" trước "banana").
-//Output:Truong Van Quan		//TH2:Không phân biệt chữ hoa, chữ thường (Ví dụ: "banana" trước "Apple").
-
-
-
+//1a.Nhập string,cách nhau bời dấu cách,sort các từ theo sự tăng dần của độ dài,nếu cùng độ dài
+//thì sort theo chiều tăng dần của từ điển(Có phân biệt chữ hoa,chữ thường)
+//Input:banana Apple date		//TH1:Có phân biệt chữ hoa, chữ thường (Ví dụ: "Apple" trước "banana").
+//Output:date Apple banana		//TH2:Không phân biệt chữ hoa, chữ thường (Ví dụ: "banana" trước "Apple").
+//main(){//Cách 1:Dùng con trỏ
+//	//Input
+//	printf("Nhap chuoi:");
+//	char s[1000];gets(s);
+//	//Tách chuỗi
+//	char *word[100];//Dùng mảng con trỏ
+//	int count=0;
+//	char *taken = strtok(s, " ");//Lấy từ đầu tiên của chuỗi lưu vào taken
+//	while(taken!=NULL){//Tách các từ còn lại trong chuỗi
+//		word[count++]=taken;
+//		taken = strtok(NULL," ");//Tách từ tiếp theo
+//	}
+//	//Sắp xếp bằng interchange
+//	int i,j;
+//	int len1,len2;
+//	char *t;//dùng con trỏ char*
+//	for(i=0;i<count-1;i++){
+//		for(j=i+1;j<count;j++){
+//			len1=strlen(word[i]);
+//			len2=strlen(word[j]);
+//			if(len1 > len2){// So sánh độ dài trước
+//				t = word[i];
+//				word[i]=word[j];
+//				word[j]=t;
+//			}else if(len1 == len2 && strcmp(word[i], word[j]) > 0){// Nếu độ dài bằng nhau, so sánh bằng từ điển
+//				t = word[i];
+//				word[i]=word[j];
+//				word[j]=t;
+//			}
+//		}
+//	}
+//	for(i=0;i<count;i++){
+//		printf("%s ",word[i]);
+//	}
+//}
+//-----------------------------
+//Input:banana Apple date
+//Output:date Apple banana
+//main(){//Cách 2:Dùng mảng 2 chiều
+//	//Input
+//	printf("Nhap chuoi:");
+//	char s[1000];gets(s);
+//	//Cách 1:Tách chuỗi bằng StrTok
+////	char word[100][100];//Dùng mảng con trỏ
+////	int count=0;
+////	char *taken = strtok(s, " ");//Lấy từ đầu tiên của chuỗi lưu vào taken
+////	while(taken!=NULL){//Tách các từ còn lại trong chuỗi
+////		strcpy(word[count++],taken);// Sao chép từ vào mảng word
+////		taken = strtok(NULL," ");//Tách từ tiếp theo
+////	}
+//	//Cách 2:Tách chuỗi bằng thủ công
+//	char word[100][100];
+//	int count=0;
+//	int pos=0;
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		if(s[i] != ' ')	word[count][pos++]=s[i];
+//		else if(pos>0){
+//			word[count++][pos]='\0';//Kết thúc từ
+//			pos = 0;
+//		}
+//	}
+//	if(pos>0){//Xử lý từ cuối cùng
+//		word[count++][pos] = '\0';
+//	}
+//	//Sắp xếp bằng interchange
+//	int j;
+//	int len1,len2;
+//	char t[100];//dùng con trỏ char*
+//	for(i=0;i<count-1;i++){
+//		for(j=i+1;j<count;j++){
+//			len1=strlen(word[i]);
+//			len2=strlen(word[j]);
+//			if(len1 > len2){// So sánh độ dài trước
+//				strcpy(t,word[i]);
+//				strcpy(word[i],word[j]);
+//				strcpy(word[j],t);
+//			}// Nếu độ dài bằng nhau, so sánh bằng từ điển
+//			else if(len1 == len2 && strcmp(word[i], word[j]) > 0){
+//				strcpy(t,word[i]);
+//				strcpy(word[i],word[j]);
+//				strcpy(word[j],t);
+//			}
+//		}
+//	}
+//	for(i=0;i<count;i++){//Output
+//		printf("%s ",word[i]);
+//	}
+//}
 
 //**********************************************************************************************
-//2.Nhập 4 tên 4 người khác nhau,sort tên của người này
-//a.Theo thứ tự tăng dần của từ điển(Không tính đến chữ hoa,chữ thường)
-//b.Theo mã ASCII(có tính đến chữ hoa,chữ thường)
-//Hướng dẫn:Bằng cách nhập 4 chuỗi s1,s2,s3,s4 rồi so sánh giữa các chuỗi với nhau
+//1b.Nhập string,cách nhau bời dấu cách,sort các từ theo sự tăng dần của độ dài,nếu cùng độ dài
+//thì sort theo chiều tăng dần của từ điển(Không Phân biệt chữ hoa,chữ thường)
+//Input:banana Apple date
+//Output:date Apple banana
+//int strcasecmp(const char *s1, const char *s2) {
+//    while (*s1 && *s2) {
+//        char c1 = tolower(*s1++);
+//        char c2 = tolower(*s2++);
+//        if (c1 != c2) return c1 - c2;
+//    }return *s1 - *s2;
+//}
+//main(){//Cách 2:Dùng mảng 2 chiều
+//	//Input
+//	printf("Nhap chuoi:");
+//	char s[1000];gets(s);
+//	//Cách 1:Tách chuỗi bằng StrTok
+////	char word[100][100];//Dùng mảng con trỏ
+////	int count=0;
+////	char *taken = strtok(s, " ");//Lấy từ đầu tiên của chuỗi lưu vào taken
+////	while(taken!=NULL){//Tách các từ còn lại trong chuỗi
+////		strcpy(word[count++],taken);// Sao chép từ vào mảng word
+////		taken = strtok(NULL," ");//Tách từ tiếp theo
+////	}
+//	//Cách 2:Tách chuỗi bằng thủ công
+//	char word[100][100];
+//	int count=0;
+//	int pos=0;
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		if(s[i] != ' ')	word[count][pos++]=s[i];
+//		else if(pos>0){
+//			word[count++][pos]='\0';//Kết thúc từ
+//			pos = 0;
+//		}
+//	}
+//	if(pos>0){//Xử lý từ cuối cùng
+//		word[count++][pos] = '\0';
+//	}
+//	//Sắp xếp bằng interchange
+//	int j;
+//	int len1,len2;
+//	char t[100];//dùng con trỏ char*
+//	for(i=0;i<count-1;i++){
+//		for(j=i+1;j<count;j++){
+//			len1=strlen(word[i]);
+//			len2=strlen(word[j]);
+//			if(len1 > len2){// So sánh độ dài trước
+//				strcpy(t,word[i]);
+//				strcpy(word[i],word[j]);
+//				strcpy(word[j],t);
+//			}// Nếu độ dài bằng nhau, so sánh bằng từ điển
+//			else if(len1 == len2 && strcasecmp(word[i], word[j]) > 0){// strcasecmp không phân biệt chữ hoa/thường
+//				strcpy(t,word[i]);
+//				strcpy(word[i],word[j]);
+//				strcpy(word[j],t);
+//			}
+//		}
+//	}
+//	for(i=0;i<count;i++){//Output
+//		printf("%s ",word[i]);
+//	}
+//}
 
-
-
-//**********************************************************************************************
-//3.Nhập n tên,sort theo a,alphabet(không phân biệt)
-//(hoặc b:Theo mã ASCII có phân biệt chữ hoa,thường)
-
-
-
+//*****************************************************************************************************************
+//2a.Nhập 4 tên 4 người khác nhau,sort tên của người này
+//Theo thứ tự tăng dần của từ điển(Không tính đến chữ hoa,chữ thường)
+//Input:B a c d
+//Output:a B c d
+//int strcasecmp(const char *s1, const char *s2) {
+//    while (*s1 && *s2) {
+//        char c1 = tolower(*s1++);
+//        char c2 = tolower(*s2++);
+//        if (c1 != c2) return c1 - c2;
+//    }return *s1 - *s2;
+//}
+//main(){
+//	printf("Input:\n");
+//	char s[4][100];
+//	int i,j;
+//	for(i=0;i<4;i++){
+//		printf("Ten %d: ",i+1);
+//		gets(s[i]);
+//	}
+//	char t[100];
+//	for(i=0;i<4-1;i++){
+//		for(j=i+1;j<4;j++){
+//			if(strcasecmp(s[i],s[j]) > 0){
+//				strcpy(t, s[i]);
+//				strcpy(s[i], s[j]);
+//				strcpy(s[j], t);
+//			}
+//		}
+//	}
+//
+//	printf("OUTPUT:");
+//	for(i=0;i<4;i++){
+//		printf("%s ",s[i]);
+//	}
+//}
+//------------------------------------------------------------------
+//2b.Nhập 4 tên 4 người khác nhau,sort tên của người này
+//(tính đến chữ hoa,chữ thường)
+//Input:B a c d
+//Output:B a c d
+//main(){
+//	printf("Input:\n");
+//	char s[4][100];
+//	int i,j;
+//	for(i=0;i<4;i++){
+//		printf("Ten %d: ",i+1);
+//		gets(s[i]);
+//	}
+//	char t[100];
+//	for(i=0;i<4-1;i++){
+//		for(j=i+1;j<4;j++){
+//			if(strcmp(s[i],s[j]) > 0){
+//				strcpy(t, s[i]);
+//				strcpy(s[i], s[j]);
+//				strcpy(s[j], t);
+//			}
+//		}
+//	}
+//
+//	printf("OUTPUT:");
+//	for(i=0;i<4;i++){
+//		printf("%s ",s[i]);
+//	}
+//}
+//*************************************************************************************************************
+//3.Nhập n tên,sort theo Theo mã ASCII có phân biệt chữ hoa,thường)
+//Input:4 -> B a c d
+//Output:B a c d
+//main(){
+//	printf("Input:\n");
+//	char s[4][100];
+//	int i,j;
+//	for(i=0;i<4;i++){
+//		printf("Ten %d: ",i+1);
+//		gets(s[i]);
+//	}
+//	char t[100];
+//	for(i=0;i<4-1;i++){
+//		for(j=i+1;j<4;j++){
+//			if(strcmp(s[i],s[j]) > 0){
+//				strcpy(t, s[i]);
+//				strcpy(s[i], s[j]);
+//				strcpy(s[j], t);
+//			}
+//		}
+//	}
+//	printf("OUTPUT:");
+//	for(i=0;i<4;i++){
+//		printf("%s ",s[i]);
+//	}
+//}
+//--------------------------------------//:Không phân biệt chữ hoa,chữ thường
+//Input:4 -> B a c d
+//Output:a B c d
+//main(){
+//	printf("Input:");
+//	int n;scanf("%d",&n);
+//	char s[n][100];getchar();
+//	int i,j;
+//	for(i=0;i<n;i++){
+//		printf("Ten %d: ",i+1);
+//		gets(s[i]);
+//	}
+//	char t[100];
+//	for(i=0;i<n-1;i++){
+//		for(j=i+1;j<n;j++){
+//			if(strcasecmp(s[i],s[j]) > 0){
+//				strcpy(t, s[i]);
+//				strcpy(s[i], s[j]);
+//				strcpy(s[j], t);
+//			}
+//		}
+//	}
+//	printf("OUTPUT:");
+//	for(i=0;i<n;i++){
+//		printf("%s ",s[i]);
+//	}
+//}
 
 //**********************************************************************************************
 
@@ -1193,5 +1444,3 @@
 
 //5.Nhập n chuỗi (danh sách n string).
 //Sắp xếp danh sách chuỗi theo thứ tự bảng chữ cái (alphabetically).
-
-
