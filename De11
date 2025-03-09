@@ -1,0 +1,404 @@
+#include <stdio.h>
+
+//   # #
+//  ## ##
+// ### ###
+//#### ####
+
+//main() {
+//    int n = 4; // Số lượng dòng của hình
+//    int i,j;
+//    for (i = 1; i <= n; i++) {
+//        for ( j = 1; j <= n - i; j++)printf(" ");// In khoảng trắng bên trái
+//        for ( j = 1; j <= i; j++)printf("#");// In dấu "#" đầu tiên
+//        printf(" ");
+//        for ( j = 1; j <= i; j++)printf("#");// In dấu "#" thứ hai
+//        // Xuống dòng sau mỗi dòng vẽ
+//        printf("\n");
+//    }
+//}
+
+/*
+
+
+    ========SPRING 2023=============
+
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <ctype.h>
+
+//1.Enter number x y,value y non-zero.Print x/y(3 decimal)
+//x=3.5555 y=5.222
+//Input:3.5555 5.2222
+//Output:0.681
+
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//	float x,y;
+//	scanf("%f%f",&x,&y);
+//	float kq = x/y;
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//	printf("%.3f",kq);
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************
+//2.Enter a real number.Score of a subject holding the test
+//-Passed with the score: score,if 5.0 <= score <= 10.0
+//-Failed with the score: score,if 0.0 <= score < 5
+//Input:7.5
+//Output:Passed with the score: 7.5
+
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//	float n;scanf("%f",&n);
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//	if(n <= 10 && n >= 5){
+//		printf("Passed with the score: %.1f",n);
+//	}else{
+//		printf("Failed with the score: %.1f",n);
+//	}
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************
+//3.Enter int 5 .Print m and n(M is even number,n is odd number)
+//Input:5 9 2 8 1
+/*Output:
+2
+3
+*/
+
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//	int a[5];
+//	int i;
+//	for(i=0;i<5;i++){
+//		scanf("%d",&a[i]);
+//	}
+//	int countM=0,countN=0;
+//	for(i=0;i<5;i++){
+//		if(a[i]%2==0){
+//			countM++;
+//		}else if(a[i]%2!=0){
+//			countN++;
+//		}
+//	}
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//	printf("%d\n",countM);
+//	printf("%d",countN);
+//	
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************//
+//4.Draw palindrome triangle pattern
+//Input:6
+//Output:
+//A
+//ABA
+//ABCBA
+//ABCDCBA
+//ABCDEDCBA
+//ABCDEFEDCBA
+
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//	int n;scanf("%d",&n);
+//	int i,j;
+//	
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//	for ( i = 0; i < n; i++) {
+////		for ( j = 0; j < n - i - 1; j++) printf("");
+//		char c = 'A';
+//		for ( j = 0; j <= i; j++) printf("%c", c++);
+//		c -= 2;
+//		for ( j = 0; j < i; j++) {
+//			printf("%c", c--);
+//		}printf("\n");
+//	}
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************
+//5.Enter array n.Print ascending(Even first,odd later)
+//n=6,array={6 9 8 2 7 3}
+//Input:6 -> 6 9 8 2 7 3
+//Output:2 6 8 3 7 9
+
+//int main() {//Cách 1
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//	int n;scanf("%d",&n);
+//	int a[n];
+//	int i;
+//	for(i=0;i<n;i++){
+//		scanf("%d",&a[i]);
+//	}
+//	int j,t;
+//	for(i=0;i<n-1;i++){
+//		for(j=i+1;j<n;j++){
+//			if(a[i] > a[j]){
+//				t = a[i];
+//				a[i] = a[j];
+//				a[j] = t;
+//			}
+//		}
+//	}
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//	for(i=0;i<n;i++){
+//		if(a[i]%2==0){
+//			printf("%d ",a[i]);
+//		}
+//	}
+//	for(i=0;i<n;i++){
+//		if(a[i]%2!=0){
+//			printf("%d ",a[i]);
+//		}
+//	}
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//int main() {//Cách 2
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//	int n, i, j, temp;scanf("%d", &n);
+//	int array[n];
+//	for (i = 0; i < n; i++) scanf("%d", &array[i]);
+//	// separate odd and even numbers
+//	int odds[n], evens[n], oddIndex = 0, evenIndex = 0;
+//	for (i = 0; i < n; i++) {
+//		if (array[i] % 2 == 1) {
+//			odds[oddIndex++] = array[i];
+//		} else {
+//			evens[evenIndex++] = array[i];
+//		}
+//	}
+//	// sort odd and even numbers separately
+//	for (i = 0; i < oddIndex; i++) {
+//		for (j = i + 1; j < oddIndex; j++) {
+//			if (odds[i] > odds[j]) {
+//				temp = odds[i];
+//				odds[i] = odds[j];
+//				odds[j] = temp;
+//			}
+//		}
+//	}
+//	for (i = 0; i < evenIndex; i++) {
+//		for (j = i + 1; j < evenIndex; j++) {
+//			if (evens[i] > evens[j]) {
+//				temp = evens[i];
+//				evens[i] = evens[j];
+//				evens[j] = temp;
+//			}
+//		}
+//	}
+//	// merge odd and even numbers back into one array
+//	int result[n], resultIndex = 0;
+//	for (i = 0; i < evenIndex; i++) {
+//		result[resultIndex++] = evens[i];
+//	}
+//	for (i = 0; i < oddIndex; i++) {
+//		result[resultIndex++] = odds[i];
+//	}
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//	// print the sorted array
+//	for (i = 0; i < n; i++) {
+//		printf("%d ", result[i]);
+//	}
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************
+//6.Enter string,check character.If check character is uppercase letter,it will converted lowercase letter
+//Input:C Programming
+//Output:c programming
+
+//int main() {//Cách 1:Thủ công
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//	char s[1000];gets(s);
+//	int i;
+//	int t;
+//	for(i=0;i<strlen(s);i++){
+//		if(s[i]>='A' && s[i] <= 'Z'){
+//			s[i]=s[i]+32;
+//		}
+//	}
+//
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//	printf("%s",s);
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//int main() {//Cách 2:Dùng thư viện
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//	char s[1000];gets(s);
+//	int i;
+//	int t;
+//	for(i=0;i<strlen(s);i++){
+//		s[i]=tolower(s[i]);
+//	}
+//
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//	printf("%s",s);
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************//
+//7.Enter array n,find index first pair sum in collection.A newline exists between 2 print indexes
+//n=6,array={6 8 4 -5 7 9},sum=15
+//Input:6 -> 6 8 4 -5 7 9 -> 15
+/*Output:
+0
+5
+*/
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************//
+//8.Enter array n,swap first largest and smallest even numbers***
+//n=7,array={5 2 8 0 9 6 20}
+//Input:7 -> 5 2 8 0 9 6 20
+//Output:5 2 8 20 9 6 0
+
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************//
+//9.Enter string s,cover 2 firstletter to uppercase
+//Input:mark elliot zuckerberg 				//Input:mark elliot       zuckerberg 
+//Output:MArk ELliot ZUckerberg				//Output:MArk ELliot       ZUckerberg
+
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//	char s[1000];gets(s);
+//	int i;
+//	int wordCount=0;
+//
+//	for(i=0; i<strlen(s); i++){
+//        s[i]=tolower(s[i]);
+//    }
+//    //s[i]=toupper(s[i]);
+//    // Viết hoa chữ cái đầu và chữ cái thứ hai của mỗi từ
+//    for(i=0; i<strlen(s); i++){
+//        if(i==0 || (i>0 && s[i-1]==' ')){// Nếu là ký tự đầu của từ (đầu chuỗi hoặc sau dấu cách)
+//            s[i]=toupper(s[i]);
+//            // Kiểm tra và viết hoa chữ cái thứ hai nếu tồn tại
+//            if(i+1 < strlen(s) && s[i+1]!=' ' && s[i+1]>='a' && s[i+1]<='z'){
+//                s[i+1] = s[i+1]-32;
+//            }
+//        }
+//    }
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//	printf("%s",s);
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************//
+//10.Enter int n.Print n is a perfect number or n is not a perfect number(perfect number is a number equal to the sum of its divisor)
+//Input:6									//Input:10
+//Output:6 is a perfect number				//Output:10 is not a perfect number
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//	printf("\nOUTPUT:\n");
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
