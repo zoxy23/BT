@@ -1,123 +1,242 @@
-#include<stdio.h>
-#include<math.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
 
-//1.Enter 2 float a b,if a > b -> float a > b if not
-//Input:5 4
-//Output:float a>b
+//   # #
+//  ## ##
+// ### ###
+//#### ####
 
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//main() {
+//    int n = 4; // Số lượng dòng của hình
+//    int i,j;
+//    for (i = 1; i <= n; i++) {
+//        for ( j = 1; j <= n - i; j++)printf(" ");// In khoảng trắng bên trái
+//        for ( j = 1; j <= i; j++)printf("#");// In dấu "#" đầu tiên
+//        printf(" ");
+//        for ( j = 1; j <= i; j++)printf("#");// In dấu "#" thứ hai
+//        // Xuống dòng sau mỗi dòng vẽ
+//        printf("\n");
+//    }
 //}
 
-//***************************************************************************************
+/*
+
+
+    ========SPRING 2023=============
+
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <ctype.h>
+
+//1.
+//Input:
+//Output:
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
+//}
+
+//*****************************************************************
 //2.
 //Input:
 //Output:
-
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
 //}
 
-//***************************************************************************************
+//*****************************************************************
 //3.
 //Input:
 //Output:
-
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
 //}
 
-//***************************************************************************************
+//*****************************************************************
 //4.
 //Input:
 //Output:
-
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
 //}
 
-//***************************************************************************************
+//*****************************************************************
 //5.
 //Input:
 //Output:
-
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
 //}
 
-//***************************************************************************************
+//*****************************************************************
 //6.
 //Input:
 //Output:
-
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
 //}
 
-//***************************************************************************************
+//*****************************************************************
 //7.
 //Input:
 //Output:
-
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
 //}
 
-//***************************************************************************************
+//*****************************************************************
 //8.
 //Input:
 //Output:
-
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
 //}
 
-//***************************************************************************************
+//*****************************************************************
 //9.
 //Input:
 //Output:
-
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
 //}
 
-//***************************************************************************************
+//*****************************************************************
 //10.
 //Input:
 //Output:
-
-//main(){
-//	//Input
-//	
-//	//Output
-//	
+//int main() {
+//	system("cls");
+//	//INPUT - @STUDENT:ADD YOUR CODE FOR INPUT HERE:
+//
+//
+//	// Fixed Do not edit anything here.
+//
+//
+//	//@STUDENT: WRITE YOUR OUTPUT HERE:
+//
+//
+//	//--FIXED PART - DO NOT EDIT ANY THINGS HERE
+//	printf("\n");
+//	system ("pause");
+//	return(0);
 //}
