@@ -1084,6 +1084,45 @@
 
 
 */
+//Bài 4. Chuyển chuỗi nhập từ bàn phím thành chữ viết hoa, viết thường và viết hoa mỗi chữ cái đầu mỗi từ
+//Input:nGUYEN van HUNG
+//void to_lower(char s[]){//Viết thường
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		if(s[i]>='A' && s[i] <= 'Z'){
+//			s[i]=s[i]+32;
+//		}
+//	}
+//}
+//void to_upper(char s[]){//Viết in hoa
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		if(s[i]>='a' && s[i] <= 'z'){
+//			s[i]=s[i]-32;
+//		}
+//	}
+//}
+//void to_title(char s[]){//In hoa chữ cái đầu
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		if(s[i]>='A' && s[i] <= 'Z'){
+//			s[i]=s[i]+32;
+//		}
+//		if(s[i-1] == ' ' ||i==0){
+//			if(s[i]>='a' && s[i] <= 'z'){
+//				s[i]=s[i]-32;
+//			}
+//		}
+//	}
+//}
+//main(){
+//	printf("Input:");
+//	char s[1000];gets(s);
+//	to_lower(s);printf("\nString in Lowercase = %s", s);
+//	to_upper(s);printf("\nString in Uppercase = %s", s);
+//	to_title(s); printf("\nString in Titlecase = %s", s);
+//}
+//----------------------------------------------------------------------------------------------------
 //1a.Nhập string,cách nhau bời dấu cách,sort các từ theo sự tăng dần của độ dài,nếu cùng độ dài
 //thì sort theo chiều tăng dần của từ điển(Có phân biệt chữ hoa,chữ thường)
 //Input:banana Apple date		//TH1:Có phân biệt chữ hoa, chữ thường (Ví dụ: "Apple" trước "banana").
@@ -1375,56 +1414,91 @@
 */
 //1.Đếm tần suất xuất hiện các ký tự trong chuỗi(có phân biệt chữ hoa,thường)
 //Frequency
-
-
+//Input:aAbc
+//Output:
+//A xuat hien 1 lan
+//a xuat hien 1 lan
+//b xuat hien 1 lan
+//c xuat hien 1 lan
+//int count[1000000] = {0}; // Mảng đếm tần suất
+//main(){
+//	printf("Input:");
+//	char s[100];gets(s);
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		count[(unsigned char)s[i]]++; // Tăng giá trị trong mảng count tương ứng với ký tự
+//	}
+//	printf("OUTPUT:\n");
+//	for(i=0;i<256;i++){
+//		if(count[i]>0){
+//			printf("%c xuat hien %d lan\n",i,count[i]);
+//		}
+//	}
+//}
 
 
 //**********************************************************************************************
-//2.Đếm tần suất xuất hiện các ký tự trong chuỗi(khônh phân biệt chữ hoa,thường)
+#include<ctype.h>
+//2.Đếm tần suất xuất hiện các ký tự trong chuỗi(không phân biệt chữ hoa,thường)
 //Frequency
+//Input:aAbc
+//Output:
+//a xuat hien 2 lan
+//b xuat hien 1 lan
+//c xuat hien 1 lan
+//int count[1000000] = {0};
+//main(){
+//	printf("Input:");
+//	char s[100];gets(s);
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		s[i]=tolower((unsigned char)s[i]);//Chuyển ký tự về chữ thường để không phân biệt hoa thường
+//		count[(unsigned char)s[i]]++; // Tăng giá trị trong mảng count tương ứng với ký tự
+//	}
+//	printf("OUTPUT:\n");
+//	for(i=0;i<256;i++){
+//		if(count[i]>0){
+//			printf("%c xuat hien %d lan\n",i,count[i]);
+//		}
+//	}
+//}
+/*
+
+
+================STRING ============()
 
 
 
+
+*/
 //**********************************************************************************************
 //1.Nhập string,tìm 3 ký tự đầu tiên ở vị trí chẵn(tính từ 0)
 //Lưu 3 ký tự vào s2[],đảo ngược và gắn lại vào s[]
-//#include <stdio.h>
-//#include <string.h>
+#include <stdio.h>
+#include <string.h>
 //main() {
 //    char s[100], s2[4]; // s2 có kích thước 4 để chứa 3 ký tự + ký tự kết thúc '\0'
 //    int i, len;
-//
-//    // Nhập chuỗi
 //    printf("Nhap chuoi: ");
 //    fgets(s, sizeof(s), stdin);
-//    
 //    // Xóa ký tự xuống dòng nếu có
 //    len = strlen(s);
 //    if (s[len - 1] == '\n') {
 //        s[len - 1] = '\0';
 //        len--;
 //    }
-//
-//    // Kiểm tra độ dài chuỗi đủ để lấy 3 ký tự ở vị trí chẵn
-//    if (len < 5) {
-//        printf("Chuoi qua ngan, can it nhat 5 ky tu!\n");
-//        return 1;
+//    if (len < 5) {// Kiểm tra độ dài chuỗi đủ để lấy 3 ký tự ở vị trí chẵn
+//        printf("Chuoi qua ngan, can it nhat 5 ky tu!\n");return 1;
 //    }
-//
-//    // Lấy 3 ký tự đầu tiên ở vị trí chẵn (0, 2, 4)
-//    s2[0] = s[0];
+//    s2[0] = s[0];// Lấy 3 ký tự đầu tiên ở vị trí chẵn (0, 2, 4)
 //    s2[1] = s[2];
 //    s2[2] = s[4];
 //    s2[3] = '\0'; // Ký tự kết thúc chuỗi
-//
-//    // Đảo ngược s2
-//    char temp;
+//    char temp;// Đảo ngược s2
 //    temp = s2[0];
 //    s2[0] = s2[2];
 //    s2[2] = temp;
-//
-//    // Gắn lại vào s
-//    s[0] = s2[0];
+//    s[0] = s2[0];// Gắn lại vào s
 //    s[2] = s2[1];
 //    s[4] = s2[2];
 //    printf("Chuoi sau khi xu ly: %s\n", s);
@@ -1435,12 +1509,55 @@
 //		printf("a[%d]: ",i);
 //		scanf("%d",&a[i]);
 //	}
-//	
 //}
+//*********************************************************************************************
 //2.Nhập string,đảo ngược nguyên âm(giữ nguyên phụ âm) hoặc đảo ngược phụ âm giữ nguyên âm
 // nguyên âm (a, e, i, o, u, A, E, I, O, U)
 
-//3.Nhập 1 chuỗi các từ cách space.Đảo ngược thứ tự các từ trong chuỗi
 
-//5.Nhập n chuỗi (danh sách n string).
-//Sắp xếp danh sách chuỗi theo thứ tự bảng chữ cái (alphabetically).
+
+//*********************************************************************************************
+//3.Nhập 1 chuỗi các từ cách space.Đảo ngược thứ tự các từ trong chuỗi
+//Input:Quan Van Truong
+//Output:Truong Van Quan
+
+//main() {
+//    printf("Input: ");
+//    char s[1000];gets(s);
+//    int len = strlen(s);
+//    
+//    // Đảo ngược toàn bộ chuỗi -> gnourT naV nauQ
+//    int left = 0, right = len - 1;
+//    while (left < right) {
+//        char temp = s[left];
+//        s[left] = s[right];
+//        s[right] = temp;
+//        left++;
+//        right--;
+//    }
+//
+//    // Đảo ngược từng từ -> nauQ naV gnourT
+//    int i;
+//    int start = 0,end = 0;;
+//    for(i=0;i<=len;i++) {
+//        if (s[i] == ' ' || s[i] == '\0') { 
+//        	end = i - 1;
+//            while (start < end) {
+//                char temp = s[start];
+//                s[start] = s[end];
+//                s[end] = temp;
+//                start++;
+//                end--;
+//            }
+//            start = i + 1;// Cập nhật start cho từ tiếp theo
+//        }
+//    }
+//
+//    printf("OUTPUT:\n");
+//    printf("%s", s);
+//}
+
+
+
+//*********************************************************************************************
+//5.Nhập n chuỗi (danh sách n string).Sắp xếp danh sách chuỗi theo thứ tự bảng chữ cái (alphabetically).
