@@ -18,7 +18,7 @@
 //	//Input
 //	char s[100];
 //	printf("Nhap chuoi: ");
-////	scanf("%99s",s);//không nhận khoảng trắng
+////	scanf("%s",s);//không nhận khoảng trắng
 //	scanf("%[^\n]s",s);//nhận khoảng trắng
 //	//Output
 //	printf("%s",s);
@@ -27,13 +27,61 @@
 //----
 //2.Đếm độ dài chuỗi bao gồm cả space
 //main(){
-//	char s[100];gets(s);
+//	char s[100];gets(s);//scanf("%[^\n]",s);
 //	int count=0;
 //	int i;
 //	for(i=0;i<strlen(s);i++){
 //		count++;
 //	}
 //	printf("%d",count);
+//}
+
+//---
+//2.1.Đếm số lần xuất hiện của 1 ký tự
+//main() {
+//    char s[1000];scanf("%[^\n]",s);
+//    char kytu;scanf(" %c",&kytu);
+//    int count = 0,i;
+//    for(i = 0;i< strlen(s);i++){
+//        if(s[i] == kytu){
+//            count++;
+//        }
+//    }
+//    printf("%d",count);
+//}
+
+//---
+//2.2.Thay đổi giá trị của các ký tự trong xâu
+
+//main() {
+//    char s[100];scanf("%[^\n]",s);
+//    int i;
+//    char kytu;scanf(" %c",&kytu);
+//    char new;scanf(" %c",&new);
+//    for(i = 0;i < strlen(s);i++){
+//        if(s[i] == kytu){
+//            s[i] = new;
+//        }
+//    }
+//    printf("%s",s);
+//}
+
+//----
+//2.2.Thay đổi giá trị của các ký tự trong xâu
+
+//main() {
+//    char s[100];scanf("%[^\n]",s);
+//    int i;
+//    char kytu;scanf(" %c",&kytu);
+//    char new;scanf(" %c",&new);
+//    int index = -1,i;
+//    for(i=0;i<strlen(s);i++){
+//        if(s[i] == c){
+//            index = i;
+//            break;
+//        }
+//    }
+//    printf("%s",s);
 //}
 
 //----
