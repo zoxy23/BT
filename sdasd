@@ -3,6 +3,16 @@
 #include <string.h>
 #include <math.h>
 #include <ctype.h>
+/*
+bool kiemtradx(char a[]){
+    for(int i=0; i< strlen(a)/2; i++){
+        if(a[i]==a[strlen(a)-i-1]){
+            return true;
+        }
+    }
+    return false;
+}
+*/
 //-------------------------------------------------------------------------------------
 //Làm quen with string
 
@@ -52,6 +62,8 @@
 
 //---
 //2.2.Thay đổi giá trị của các ký tự trong xâu
+//hello -> e -> 1
+//h1llo
 
 //main() {
 //    char s[100];scanf("%[^\n]",s);
@@ -67,21 +79,22 @@
 //}
 
 //----
-//2.2.Thay đổi giá trị của các ký tự trong xâu
+//2.3.Tìm vị trí xuất hiện của một ký tự trong một xâu
+//hello -> e
+//1
 
 //main() {
 //    char s[100];scanf("%[^\n]",s);
+//	char kytu;scanf(" %c",&kytu);
 //    int i;
-//    char kytu;scanf(" %c",&kytu);
-//    char new;scanf(" %c",&new);
-//    int index = -1,i;
+//    int index = -1;
 //    for(i=0;i<strlen(s);i++){
-//        if(s[i] == c){
+//        if(s[i] == kytu){
 //            index = i;
 //            break;
 //        }
 //    }
-//    printf("%s",s);
+//    printf("%d",index);
 //}
 
 //----
@@ -112,7 +125,28 @@
 //}
 
 //----
-//4.Chuyển đổi chuỗi thành chữ in hoa và in thường
+//4.Chuyển đổi chuỗi thành chữ in hoa và in thường(Dùng thư viện)
+//Input:FpT iS FaKe
+//Output:FPT IS FAKE - fpt is fake
+
+//main(){
+//	//Input
+//    char s[100];gets(s);
+//    //Thuật toán
+//    int i;
+//    char upper[100];
+//    char lower[100];
+//    strcpy(upper,s);
+//    strcpy(lower,s);
+//    for(i=0;i<strlen(s);i++) {
+//        upper[i] = toupper(upper[i]);
+//        lower[i] = tolower(lower[i]);
+//    }
+//	printf("%s - %s ",upper,lower);
+//}
+
+//---
+//4.1.Chuyển đổi chuỗi thành chữ in hoa và in thường không dùng thư viện
 //Input:FpT iS FaKe
 //Output:FPT IS FAKE - fpt is fake
 
@@ -126,13 +160,45 @@
 //    strcpy(upper,s);
 //    strcpy(lower,s);
 //    for(i=0;i<strlen(upper);i++) {
-//        upper[i] = toupper(upper[i]);
+//        if(s[i] >= 'a' && s[i] <= 'z')	upper[i] -= 32;
+//        if(s[i] >= 'A' && s[i] <= 'Z')	lower[i] += 32;
 //    }
-//    for(i=0;i<strlen(lower);i++) {
-//        lower[i] = tolower(lower[i]);
-//    }
-//    printf("%s - ",upper);
-//    printf("%s",lower);
+//    printf("%s - %s ",upper,lower);
+//}
+//****
+/*
+void Inhoachudau(char a[]){
+    for(int i=0; i<strlen(a); i++){
+        if(i==0|| (i>0 && a[i-1]==' ')){//neu la ky tu dau tien cua chuôi hoac ky tu ngay sau ky tu cach 
+            if(a[i]>='a' && a[i]<='z')//neu la ky tu viet thuong doi thanh viet hoa
+                a[i]=a[i]-32;    
+        }else{
+            //neu chu cai khong phai o dau moi tu viet hoa chuyen thanh viet thuong
+            if(a[i]>='A' && a[i]<='Z'){
+                a[i]=a[i]+32;    
+            }
+                
+        }
+    }
+}
+*/
+//***
+//4.2.Kiểm tra 2 xâu có giống nhau không
+//hello -> hello
+//YES
+
+//main(){
+//	//Input
+//    char s1[100],s2[100];
+////	gets(s1);gets(s2);
+//    scanf("%[^\n]%*c", s1);
+//    scanf("%[^\n]%*c", s2);
+//    //Thuật toán
+//	if(strcmp(s1,s2) == 0){
+//		printf("YES");
+//	}else{
+//		printf("NO");
+//	}
 //}
 
 //----
@@ -196,7 +262,7 @@
 //    printf("%s", s);;
 //}
 
-//7.1--Tổng quát 
+//7.1--Chuyển chuỗi thành viết hoa chữ cái x mỗi từ.
 //main() {
 //	//Input
 //    char s[100];gets(s);
@@ -217,8 +283,12 @@
 //    //Ouput
 //    printf("%s", s);;
 //}
-//7.2.Xử lí dấu space 
+
+//---
+//7.2. Chuyển chuỗi thành viết hoa chữ cái đầu mỗi từ.Xử lí dấu space 
 //daika       songcon
+//Daika Songcon
+
 //main() {
 //    // Input
 //    char s[100];gets(s);
@@ -244,9 +314,820 @@
 //    printf("%s", result);
 //}
 
+//-----
+//8.Tìm Vị Trí Ký Tự
+//input:hello
+//Output:4
+
+//main() {
+//    char s[100];gets(s);
+//	char kytu;scanf(" %c",&kytu);
+//    int index = -1;
+//    int i;
+//    int flag=0;
+//    for(i=0;i<strlen(s);i++){
+//        if(s[i] == kytu){
+//            index = i;
+//            flag = 1;
+//        }
+//    }
+//    if(flag==0){
+//    	 printf("Khong tim thay ki tu");
+//	}else{
+//		printf("%d ",index+1);
+//	}
+//}
+
+//main() {//Hoàn thiện
+//    char s[100];gets(s);
+//	char kytu;scanf(" %c",&kytu);
+//    int index = -1;
+//    int i;
+//    int flag=0;
+//    for(i=0;i<strlen(s);i++){
+//        if(s[i] == kytu){
+//            index = i;
+//            flag = 1;
+//        }
+//    }
+//    if(flag==0){
+//    	 printf("Khong tim thay ki tu");
+//	}else{
+//		for(i=0;i<strlen(s);i++){
+//			if(s[i] == kytu){
+//				printf("%d ",i+1);
+//			}
+//		}
+//	}
+//}
+
+//----
+//8.1.Xóa tất cả các ký tự trùng lặp trong chuỗi
+//hello 
+//helo
+
+//main() {
+//    char s[100];gets(s);
+//	int i,j;
+//	int k;
+//	int len = strlen(s);
+//    for(i=0;i<len;i++){
+//		for(j=i+1;j<len;j++){
+//			if(s[i] == s[j]){
+//				for(k=j;k<len;k++){//Dịch phần tử sang trái
+//					s[k]=s[k+1];
+//				}
+//				len--;
+//				j--;
+//			}
+//		}
+//    }
+//	printf("%s", s);
+//}
 
 
+//-------
+/*
+    for (i = 0; i < len; i++) {
+        for (j = i + 1; j < len; j++) {
+            if (s[i] == s[j]) {
+                for (k = len; k > j; k--) {// Dịch phần tử sang phải bắt đầu từ cuối chuỗi
+                    s[k] = s[k - 1];
+                }
+                s[j] = '\0';  // Xóa ký tự trùng lặp ở vị trí j
+                len++;        // Tăng độ dài chuỗi
+                j++;          // Điều chỉnh j để kiểm tra ký tự mới
+            }
+        }
+    }
+*/
+//----
+//9.Đảo ngược chuỗi
+//hello   //olleh
 
+//main() {
+//    char s[100];gets(s);
+//	int i;
+//	int len = strlen(s);
+//	char temp;
+//	for(i=0;i<len/2;i++){
+//		temp = s[i];
+//		s[i] = s[len-i-1];
+//		s[len-i-1] = temp;
+//	}
+//	printf("%s", s);
+//}
+
+//-----
+//9.1.Đảo ngược chuỗi(Dùng thư viện)
+//hello   //olleh
+
+//main() {
+//    char s[100];gets(s);
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		if(isalpha(s[i])){
+//			strrev(s[i]);
+//		}
+//	}
+//	printf("%s", s);
+//}
+
+
+//----
+//9.2.Đảo ngược chuỗi bằng đệ quy
+
+//main() {
+//    char s[100];gets(s);
+//    int len = strlen(s);
+//    int start = 0,end = len - 1;
+//    char temp;
+//    while (start < end) {
+//        temp = s[start];
+//        s[start] = s[end];
+//        s[end] = temp;
+//        start++;
+//        end--;
+//    }
+//	printf("%s", s);
+//}
+
+
+//----
+//9.3. Đảo ngược chuỗi với các từ vẫn giữ nguyên thứ tự 
+//Hello World
+//World Hello
+
+//---
+//9.4.Đảo ngược chuỗi với điều kiện (chỉ đảo các chữ cái)
+//a1b2c3d
+//d1c2b3a
+
+//main() {
+//    char s[100];gets(s);
+//    int len = strlen(s);
+//    int start = 0,end = len - 1;
+//    char temp;
+//    while (start < end) {
+//		if(!isalpha(s[start])){
+//			start++;
+//		}else if(!isalpha(s[end])){
+//			end--;
+//		}else{
+//			temp = s[start];
+//	        s[start] = s[end];
+//	        s[end] = temp;
+//	        start++;
+//	        end--;
+//		}
+//    }
+//	printf("%s", s);
+//}
+
+//---
+//10.Xóa một ký tự cụ thể trong chuỗi
+//Hello World -> l    Output:Heo Word
+
+//main() {
+//    char s[100];gets(s);
+//    char kytu;scanf(" %c",&kytu);
+//    int i;
+//	int index = 0;
+//    for (i = 0; i < strlen(s); i++) {
+//        if (s[i] != kytu) {
+//            s[index] = s[i];
+//            index++;
+//        }
+//    }
+//    s[index] = '\0';
+//	printf("%s", s);
+//}	
+
+//----
+//10.1.Xóa các ký tự trùng lặp trong chuỗi
+//Hello World
+//Helo Wrd
+
+//main() {
+//    char s[100];gets(s);
+//	int i,j;
+//	int k;
+//	int len = strlen(s);
+//    for(i=0;i<len;i++){
+//		for(j=i+1;j<len;j++){
+//			if(s[i] == s[j]){
+//				for(k=j;k<len;k++){//Dịch phần tử sang trái
+//					s[k]=s[k+1];
+//				}
+//				len--;
+//				j--;
+//			}
+//		}
+//    }
+//	printf("%s", s);
+//}
+
+//----
+//10.1.Xóa tất cả các ký tự trùng nhau trong chuỗi - Dùng mảng tần suất
+//Hello World
+//He Wrd
+
+//int count[1000000]={0};
+//main() {
+//    char s[100];gets(s);
+//    char kq[100] ="";
+//    int i;
+//    for(i=0;i<strlen(s);i++){
+//    	count[s[i]]++;
+//	}
+//	int index=0;
+//    for(i=0;i<strlen(s);i++) {
+//        if (count[s[i]] == 1) {  // Nếu ký tự chỉ xuất hiện 1 lần
+//            kq[index] = s[i];  // Thêm ký tự vào chuỗi kết quả
+//            index++;
+//        }
+//    }
+//    kq[index] = '\0';
+//	printf("%s", kq);
+//}
+
+//---
+//10.2.Xóa ký tự không phải chữ cái(có điều kiện)
+//Hello123 World! 				Hello World
+//main() {
+//    char s[100];gets(s);
+//    int i, index = 0;
+//    for (i = 0; i < strlen(s); i++) {
+//        if (isalpha(s[i]) || s[i] == ' ') {
+//            s[index] = s[i];
+//            index++;
+//        }
+//    }
+//    s[index] = '\0';
+//	printf("%s", s);
+//}
+
+//---
+//10.3.Xử lý theo từ (tách chuỗi theo từ) - Strtok
+//C is a powerful language				C - is - a - powerful - language
+
+//main() {
+//    char s[100];gets(s);
+//	char *taken = strtok(s," ");
+//	while(taken != NULL){
+//		printf("%s\n",taken);
+//		taken = strtok(NULL," "); 
+//	}
+//}
+
+//---
+//10.4.Xử lý theo từ (tách chuỗi theo từ) - Strtok
+//I am learning C programming -> 3			
+//Chuoi sau khi xoa tu dai hon 3: I am C
+
+//main() {
+//    char s[100];gets(s);
+//    int max;scanf("%d",&max);
+//    char kq[100] ="";
+//	char *taken = strtok(s," ");
+//    while (taken != NULL) {
+//        if (strlen(taken) <= max) {
+//            if (strlen(kq) > 0) {//strcat:Nối chuỗi
+//                strcat(kq, " "); // Thêm dấu cách nếu không phải từ đầu tiên
+//            }
+//            strcat(kq, taken); // Thêm từ vào chuỗi kết quả
+//        }
+//        taken = strtok(NULL, " ");
+//    }
+//	printf("%s", kq);
+//}
+
+//---
+//10.4.Xử lý theo từ (tách chuỗi theo từ) 
+//I am learning C programming -> 3			
+//Chuoi sau khi xoa tu dai hon 3: I am C
+
+//main() {
+//    char s[100];gets(s);
+//    int max;scanf("%d",&max);
+//    char kq[100] = "";
+//    int start = -1; // Biến lưu vị trí bắt đầu của từ
+//    int i,j = 0; // Biến để kiểm tra từ đầu tiên
+//    for (i = 0; i <= strlen(s); i++) {// Duyệt qua chuỗi và tách từ
+//        if (s[i] != ' ' && s[i] != '\n') {// Nếu là ký tự không phải dấu cách bắt đầu một từ
+//            if (start == -1) {
+//                start = i;
+//            }
+//        } else {// Khi gặp dấu cách hoặc kết thúc chuỗi
+//            if (start != -1) {
+//                int length = i - start; // Tính chiều dài của từ
+//                if (length <= max) {// Nếu từ có chiều dài nhỏ hơn hoặc bằng max,thêm vào chuỗi
+//                    if (j > 0) {
+//                        strcat(kq, " "); // Thêm dấu cách nếu không phải từ đầu tiên
+//                    }
+//                    strncat(kq, s + start, length); // Nối từ vào chuỗi kết quả
+//                    j++; // Đếm số từ đã thêm vào chuỗi kết quả
+//                }
+//                start = -1; // Đặt lại start khi gặp dấu cách
+//            }
+//        }
+//    }
+//	printf("%s", kq);
+//}
+
+//----
+//10.5.Đếm tần suất và lọc ký tự
+//hello
+//e xuat hien 1 lan
+//h xuat hien 1 lan
+//l xuat hien 2 lan
+//o xuat hien 1 lan
+
+//int count[1000000] = {0};
+//main() {
+//    char s[100];gets(s);
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		count[s[i]]++;
+//	}
+//	for(i=0;i<256;i++){
+//		if(count[i]>0){
+//			printf("%c xuat hien %d lan\n",i,count[i]);
+//		}
+//	}
+//}
+
+//----
+//10.6.Đếm tần suất và lọc ký tự
+//hello
+//e xuat hien 1 lan
+//h xuat hien 1 lan
+//l xuat hien 2 lan
+//o xuat hien 1 lan
+
+//int count[1000000] = {0};
+//main() {
+//    char s[100];gets(s);
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		count[s[i]]++;
+//	}
+//	for(i=0;i<256;i++){
+//		if(count[i]>0){
+//			printf("%c xuat hien %d lan\n",i,count[i]);
+//		}
+//	}
+//}
+
+//---
+//11.Nối chuỗi
+//Hello -> World				HelloWorld
+//main() {
+//    char s1[100];gets(s1);
+//	char s2[100];gets(s2);
+//	strcat(s1,s2);
+//	printf("Chuoi sau khi noi: %s", s1);
+//}
+
+//---
+//11.1.Nối chuỗi với khoảng trắng
+//Hello -> World				Hello World
+//main() {
+//    char s1[100];gets(s1);
+//	char s2[100];gets(s2);
+//	strcat(s1," ");
+//	strcat(s1,s2);
+//	printf("Chuoi sau khi noi:%s", s1);
+//}
+
+//---
+//11.2.Nối chuỗi có điều kiện
+//Hello123 -> World!456				HelloWorld
+
+//main() {
+//    char s1[100];gets(s1);
+//	char s2[100];gets(s2);
+//	char kq[100];
+//	int i;
+//	int temp=0;
+//	for(i=0;i<strlen(s1);i++){
+//		if(isalpha(s1[i])){
+//			kq[temp++] = s1[i];
+//		}
+//	}
+//	for(i=0;i<strlen(s2);i++){
+//		if(isalpha(s2[i])){
+//			kq[temp++] = s2[i];
+//		}
+//	}
+//	printf("Chuoi sau khi noi: %s", kq);
+//}
+
+//---
+//12.Tách chuỗi thành các từ và in lần lượt
+//Hello World			Hello/World
+
+//main() {
+//    char s[100];gets(s);
+//	char *taken = strtok(s," ");
+//	while(taken != NULL){
+//		printf("%s\n",taken);
+//		taken = strtok(NULL," "); 
+//	}
+//}
+
+//---
+//12.1.Đếm số từ trong chuỗi
+//I am learning Code			4
+
+//main() {
+//    char s[100];gets(s);
+//    int count=0;
+//	char *taken = strtok(s," ");
+//	while(taken != NULL){
+//		count++;
+//		taken = strtok(NULL," "); 
+//	}
+//	printf("%d",count);
+//}
+
+//---
+//12.2.Tách và lưu các từ vào mảng
+//Hello World from Earth	
+//Tu1:Hello
+//Tu2:World
+//Tu3:from
+//Tu4:Earth
+
+//main() {
+//    char s[100];gets(s);
+//    char word[100][200];//lưu 100 từ,200 ký tự
+//    int count=0;
+//	char *taken = strtok(s," ");
+//	while(taken != NULL && count < 10){
+//		strcpy(word[count++], taken);
+//		taken = strtok(NULL," "); 
+//	}
+//	int i;
+//	for(i=0;i<count;i++) {
+//        printf("Tu %d: %s\n", i + 1, word[i]);
+//    }
+//}
+
+//---
+//12.3.Tách chuỗi với nhiều ký tự phân cách
+//Hello, World. from Earth	
+//Tu1:Hello
+//Tu2:World
+//Tu3:from
+//Tu4:Earth
+
+//main() {
+//    char s[100];gets(s);
+//    char word[100][200];//lưu 100 từ,200 ký tự
+//    int count=0;
+//	char *taken = strtok(s," ,.");
+//	while(taken != NULL && count < 10){
+//		strcpy(word[count++], taken);
+//		taken = strtok(NULL," ,."); 
+//	}
+//	int i;
+//	for(i=0;i<count;i++) {
+//        printf("Tu %d: %s\n", i + 1, word[i]);
+//    }
+//}
+
+//---
+//12.3.Tách chuỗi với nhiều ký tự phân cách
+//Hello World from Earths	
+//Max:Earths		Min:from
+
+//main() {
+//    char s[100];gets(s);
+//    char word[100][200];//lưu 100 từ,200 ký tự
+//    int count=0;
+//	char *taken = strtok(s," ");
+//	while(taken != NULL && count < 100){
+//		strcpy(word[count++], taken);
+//		taken = strtok(NULL," "); 
+//	}
+//	int max=-1e9;
+//	int index=0;
+//	int i;
+//	for(i=0;i<count;i++){
+//		if(strlen(word[i]) > max){
+//			max = strlen(word[i]);
+//			index = i;
+//		}
+//	}
+//	int min=1e9;
+//	int index2=0;
+//	for(i=0;i<count;i++){
+//		if(strlen(word[i]) < min){
+//			min = strlen(word[i]);
+//			index2 = i;
+//		}
+//	}
+//	printf("Tu dai nhat: %s\n", word[index]);
+//	printf("Tu ngan nhat: %s", word[index2]);
+//}
+
+//-----
+//13.Kiểm tra chuỗi có phải là Palindrome không
+//Racecar
+
+//int checkPalindrome(char *s){
+//	int a=0,b=strlen(s)-1;
+//	while(a<b){
+//		if(tolower(s[a]) != tolower(s[b]) ){//if(s[a] != s[b]) :phân biệt hoa thường
+//			return 0;
+//		}
+//		a++;
+//		b--;
+//	}return 1;
+//}
+//main(){
+//	char s[1000];gets(s);
+//	if(checkPalindrome(s)){
+//		printf("YES");
+//	}else{
+//		printf("NO");
+//	}
+//}
+
+//----
+//13.1.Kiểm tra chuỗi có phải là Palindrome không
+//(bỏ qua khoảng trắng và không phân biệt hoa/thường)
+//A man a plan a canal Panama
+
+//int checkPalindrome(char *s){
+//	int a=0,b=strlen(s)-1;
+//	while(a<b){
+//		while (a < b && s[a] == ' ') a++;
+//        while (a < b && s[b] == ' ') b--;
+//		if(tolower(s[a]) != tolower(s[b]) ){//if(s[a] != s[b]) :phân biệt hoa thường
+//			return 0;
+//		}
+//		a++;
+//		b--;
+//	}return 1;
+//}
+//main(){
+//	char s[1000];gets(s);
+//	if(checkPalindrome(s)){
+//		printf("YES");
+//	}else{
+//		printf("NO");
+//	}
+//}
+
+//----
+//13.2.Kiểm tra chuỗi có phải là Palindrome không
+//chỉ xét các chữ cái (bỏ qua khoảng trắng) và không phân biệt hoa/thường.
+//Racecar123
+
+//int checkPalindrome(char *s){
+//	int a=0,b=strlen(s)-1;
+//	while(a<b){
+//		while (a < b && !isalpha(s[a])) a++;
+//        while (a < b && !isalpha(s[b])) b--;
+//		if(tolower(s[a]) != tolower(s[b]) ){//if(s[a] != s[b]) :phân biệt hoa thường
+//			return 0;
+//		}
+//		a++;
+//		b--;
+//	}return 1;
+//}
+//main(){
+//	char s[1000];gets(s);
+//	if(checkPalindrome(s)){
+//		printf("YES");
+//	}else{
+//		printf("NO");
+//	}
+//}
+
+//----
+//14.hay thế một ký tự bằng ký tự khác
+//Hello World -> l -> x
+//Hexxo Worxd
+
+//main(){
+//	char s[1000];gets(s);
+//	char s1;scanf(" %c", &s1);
+//	char s2;scanf(" %c", &s2);
+//	int i;
+//	for(i=0;i<strlen(s);i++){
+//		if(s[i] == s1){
+//			s[i] = s2;
+//		}
+//	}
+//	printf("Chuoi sau khi thay the: %s", s);
+//}
+
+//----
+//14.1.Thay thế một từ bằng từ khác
+//Hello World -> Hello -> Greet
+//Greet Worxd
+
+//main(){
+//	char s[1000];gets(s);
+//	char s1[100];gets(s1);
+//	char s2[100];gets(s2);
+//	char kq[1000]= "";
+//	char *taken = strtok(s," ");
+//	while(taken != NULL){
+//		if(strcmp(taken,s1)==0){//từ cần thay thế
+//			strcat(kq,s2);
+//		}else{
+//			strcat(kq,taken);
+//		}
+//		strcat(kq," "); // Thêm dấu cách giữa các từ
+//		taken = strtok(NULL," "); 
+//	}
+//	 if (strlen(kq) > 0) kq[strlen(kq) - 1] = '\0';
+//	printf("Chuoi sau khi thay the: %s", kq);
+//}
+
+//----
+//14.2.Thay thế tất cả các lần xuất hiện của chuỗi con
+//Hello world HELLO -> hello -> hi
+//hi world hi
+
+//main(){
+//	char s[1000];gets(s);
+//	char s1[100];gets(s1);
+//	char s2[100];gets(s2);
+//	char kq[1000]= "";
+//	char *taken = strtok(s," ");
+//	while(taken != NULL){
+//		if(strcmpi(taken,s1)==0){//từ cần thay thế
+//			strcat(kq,s2);
+//		}else{
+//			strcat(kq,taken);
+//		}
+//		strcat(kq," "); // Thêm dấu cách giữa các từ
+//		taken = strtok(NULL," "); 
+//	}
+//	 if (strlen(kq) > 0) kq[strlen(kq) - 1] = '\0';
+//	printf("Chuoi sau khi thay the: %s", kq);
+//}
+
+
+//----
+//15.Sắp xếp các từ theo thứ tự bảng chữ cái (Alphabetical Order)
+//Hello World C Programming
+//C Hello Programming World
+
+//main(){
+//	char s[1000];gets(s);
+//	char word[100][200];
+//	int count = 0;
+//	char *taken = strtok(s," ");
+//	while(taken != NULL && count < 10){
+//		strcpy(word[count++], taken);
+//		taken = strtok(NULL," "); 
+//	}
+//	int i,j;
+//	char temp[100];
+//	for(i=0;i<count-1;i++){//bubble sort
+//        for(j=i+1;j<count-1-i;j++) {
+//            if (strcmp(word[j],word[j + 1]) > 0) {
+//                strcpy(temp, word[j]);
+//                strcpy(word[j], word[j + 1]);
+//                strcpy(word[j + 1],temp);
+//            }
+//        }
+//    }
+//	for(i=0;i<count;i++) {
+//        printf("%s",word[i]);
+//        if (i < count - 1) printf(" ");
+//    }
+//}
+
+//----
+//15.1.Sắp xếp các từ theo độ dài tăng dần
+//Hello world HELLO from Earth
+//from world HELLO Hello Earth
+
+//main(){
+//	char s[100];gets(s);
+//    char word[10][50];
+//    int count = 0;
+//    char *token = strtok(s, " ");
+//    while (token != NULL && count < 10) {
+//        strcpy(word[count++], token);
+//        token = strtok(NULL, " ");
+//    }
+//	int i,j;
+//	char temp[100];
+//	for(i=0;i<count-1;i++){//interchage
+//        for(j=i+1;j<count;j++) {
+//            if (strlen(word[i]) > strlen(word[j])) {
+//                strcpy(temp, word[i]);
+//                strcpy(word[i], word[j]);
+//                strcpy(word[j],temp);
+//            }
+//        }
+//    }
+//    printf("Chuoi sau khi sap xep: ");
+//	for(i=0;i<count;i++) {
+//        printf("%s",word[i]);
+//        if (i < count - 1) printf(" ");
+//    }
+//}
+
+//----
+//15.2.Sắp xếp các từ theo thứ tự ngược bảng chữ cái
+//Hello world HELLO from Earth
+// world from Hello HELLO Earth
+
+//main(){
+//	char s[100];gets(s);
+//    char word[10][50];
+//    int count = 0;
+//    char *token = strtok(s, " ");
+//    while (token != NULL && count < 10) {
+//        strcpy(word[count++], token);
+//        token = strtok(NULL, " ");
+//    }
+//	int i,j;
+//	char temp[100];
+//	for(i=0;i<count-1;i++){//interchage
+//        for(j=i+1;j<count;j++) {
+//            if (strcmp(word[i],word[j]) < 0) {
+//                strcpy(temp, word[i]);
+//                strcpy(word[i], word[j]);
+//                strcpy(word[j],temp);
+//            }
+//        }
+//    }
+//    printf("Chuoi sau khi sap xep: ");
+//	for(i=0;i<count;i++) {
+//        printf("%s",word[i]);
+//        if (i < count - 1) printf(" ");
+//    }
+//}
+
+//---
+//15.2.Sắp xếp các từ theo độ dài giảm dần, nếu bằng nhau thì theo bảng chữ cái
+//apple banana orange kiwi grape cherry
+//banana cherry orange apple grape kiwi
+
+//main(){
+//	char s[100];gets(s);
+//	char word[100][200];
+//    int count = 0;
+//    char *token = strtok(s, " ");
+//    while (token != NULL && count < 10) {
+//        strcpy(word[count++], token);
+//        token = strtok(NULL, " ");
+//    }
+//	int i,j;
+//	char temp[100];
+//	for(i=0;i<count-1;i++){//interchage
+//        for(j=i+1;j<count;j++) {
+//            if(strlen(word[i])<strlen(word[j])||
+//			(strlen(word[i])==strlen(word[j])&&strcmp(word[i], word[j])>0)){
+//                strcpy(temp, word[i]);
+//                strcpy(word[i], word[j]);
+//                strcpy(word[j],temp);
+//            }
+//        }
+//    }
+//    printf("Chuoi sau khi sap xep:");
+//	for(i=0;i<count;i++) {
+//        printf("%s",word[i]);
+//        if (i < count - 1) printf(" ");
+//    }
+//}
+
+
+//----
+//13.2.Kiểm tra chuỗi có phải là Palindrome không
+//chỉ xét các chữ cái (bỏ qua khoảng trắng) và không phân biệt hoa/thường.
+//Racecar123
+
+//int checkPalindrome(char *s){
+//	int a=0,b=strlen(s)-1;
+//	while(a<b){
+//		while (a < b && !isalpha(s[a])) a++;
+//        while (a < b && !isalpha(s[b])) b--;
+//		if(tolower(s[a]) != tolower(s[b]) ){//if(s[a] != s[b]) :phân biệt hoa thường
+//			return 0;
+//		}
+//		a++;
+//		b--;
+//	}return 1;
+//}
+//main(){
+//	char s[1000];gets(s);
+//	if(checkPalindrome(s)){
+//		printf("YES");
+//	}else{
+//		printf("NO");
+//	}
+//}
 //-------------------------------------------------------------------------------------
 //BT string
 //1.Nhap s,in ky tu la so chan(FA24-Can Tho)
@@ -384,4 +1265,17 @@
 //	}
 //	//Output
 //	printf("%d",a[m]);
+//}
+
+//Ham giai thua
+//int factorial(int n) {
+//    if (n == 1) return 1;
+//    return n * factorial(n - 1);
+//}
+//
+//int main() {
+//    int n;
+//    scanf("%d", &n);
+//    printf("%d", factorial(n));
+//    return 0;
 //}
