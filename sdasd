@@ -1118,6 +1118,51 @@ void Inhoachudau(char a[]){
 //    }
 //}
 
+//---
+//16.Kiểm tra định dạng email
+//apple banana orange kiwi grape cherry
+//banana cherry orange apple grape kiwi
+
+//main(){
+//	char s[100];gets(s);
+//}
+
+//---
+//17.Mã hóa chuỗi (Caesar Cipher)
+//apple banana orange kiwi grape cherry
+//banana cherry orange apple grape kiwi
+
+//main(){
+//	char s[100];gets(s);
+//}
+
+//---
+//18.Đếm số từ, số ký tự, số câu
+//apple banana orange kiwi grape cherry
+//banana cherry orange apple grape kiwi
+
+//main(){
+//	char s[100];gets(s);
+//}
+
+//---
+//19.Tìm chuỗi con dài nhất không lặp lại ký tự
+//apple banana orange kiwi grape cherry
+//banana cherry orange apple grape kiwi
+
+//main(){
+//	char s[100];gets(s);
+//}
+
+//---
+//20.Chuyển chuỗi thành số nguyên
+//apple banana orange kiwi grape cherry
+//banana cherry orange apple grape kiwi
+
+//main(){
+//	char s[100];gets(s);
+//}
+
 
 //----
 //13.2.Kiểm tra chuỗi có phải là Palindrome không
@@ -1145,7 +1190,7 @@ void Inhoachudau(char a[]){
 //	}
 //}
 //-------------------------------------------------------------------------------------
-//BT string
+//BT đề thi string
 //1.Nhap s,in ky tu la so chan(FA24-Can Tho)
 //In:ab42c 5d6 ef23
 //Out:4
