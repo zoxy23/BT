@@ -1,0 +1,114 @@
+// Add this within the Cheats object definition, alongside other modes like "kingdom", "toy", etc.
+laser: [
+    {
+        name: "Set Score",
+        description: "Sets your Laser Tag score to a custom value",
+        inputs: [
+            {
+                name: "Score",
+                type: "number",
+                min: 0,
+                value: 100
+            }
+        ],
+        run: function (score) {
+            const stateNode = getStateNode();
+            if (window.location.pathname !== "/play/laser-tag") {
+                return alert("You must be in Laser Tag mode to use this cheat!");
+            }
+            try {
+                stateNode.setState({ score: score });
+                stateNode.props.liveGameController.setVal({
+                    path: `c/${stateNode.props.client.name}/s`,
+                    val: score
+                });
+            } catch (e) {
+                alert("Error setting score: " + e.message);
+            }
+        }
+    },
+    {
+        name: "Unlimited Energy",
+        description: "Toggles unlimited energy for firing lasers",
+        type: "toggle",
+        enabled: false,
+        data: null,
+        run: function () {
+            const stateNode = getStateNode();
+            if (window.location.pathname !== "/play/laser-tag") {
+                return alert("You must be in Laser Tag mode to use this cheat!");
+            }
+            if (!this.enabled) {
+                this.enabled = true;
+                this.data = setInterval(() => {
+                    try {
+                        stateNode.setState({ energy: 100 }); // Assuming energy is a state property
+                    } catch {}
+                }, 50);
+            } else {
+                this.enabled = false;
+                clearInterval(this.data);
+                this.data = null;
+            }
+        }
+    },
+    {
+        name: "Auto Tag",
+        description: "Automatically tags opponents for you",
+        type: "toggle",
+        enabled: false,
+        data: null,
+        run: function () {
+            const stateNode = getStateNode();
+            if (window.location.pathname !== "/play/laser-tag") {
+                return alert("You must be in Laser Tag mode to use this cheat!");
+            }
+            if (!this.enabled) {
+                this.enabled = true;
+                this.data = setInterval(() => {
+                    try {
+                        const players = stateNode.props.liveGameController.getDatabaseVal("c");
+                        if (players) {
+                            const opponents = Object.keys(players).filter(p => p !== stateNode.props.client.name);
+                            if (opponents.length > 0) {
+                                const target = opponents[0]; // Tag the first opponent
+                                stateNode.props.liveGameController.setVal({
+                                    path: `c/${stateNode.props.client.name}/t`,
+                                    val: target
+                                });
+                            }
+                        }
+                    } catch {}
+                }, 100);
+            } else {
+                this.enabled = false;
+                clearInterval(this.data);
+                this.data = null;
+            }
+        }
+    },
+    {
+        name: "Max Shields",
+        description: "Sets your shields to maximum",
+        run: function () {
+            const stateNode = getStateNode();
+            if (window.location.pathname !== "/play/laser-tag") {
+                return alert("You must be in Laser Tag mode to use this cheat!");
+            }
+            try {
+                stateNode.setState({ shields: 100 }); // Assuming shields is a state property
+                stateNode.props.liveGameController.setVal({
+                    path: `c/${stateNode.props.client.name}/sh`,
+                    val: 100
+                });
+            } catch (e) {
+                alert("Error setting shields: " + e.message);
+            }
+        }
+    }
+],
+addMode(
+    '<span style="font-size: 18px">Laser Tag</span>',
+    '<img style="height: 30px; margin-right: 5px" src="https://media.blooket.com/image/upload/v1657235025/Media/survivor/Laser_Lvl1.svg">',
+    Cheats.laser
+);
