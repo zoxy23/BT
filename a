@@ -107,8 +107,3 @@ laser: [
         }
     }
 ],
-addMode(
-    '<span style="font-size: 18px">Laser Tag</span>',
-    '<img style="height: 30px; margin-right: 5px" src="https://media.blooket.com/image/upload/v1657235025/Media/survivor/Laser_Lvl1.svg">',
-    Cheats.laser
-);
